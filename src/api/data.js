@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 //api keys
 const client_secret = process.env.CLIENT_SECRET
 const client_id = process.env.CLIENT_ID
@@ -26,7 +27,7 @@ const getData = async ()=>{
 
         const data = await response.json();
 
-        console.log(data.data.children[0].data);
+        console.log(data);
     } catch (error) {
         console.log('This is the error: \n'+ error);
     }
