@@ -12,7 +12,7 @@ const headers = {
 // authentication
 const authParams = new URLSearchParams({
     client_id: client_id,
-    client_secret: client_secret,
+    client_secret: client_secret
 });
 //concatenating authentications with url
 const urlWithParams = `${url}?${authParams.toString()}`;
