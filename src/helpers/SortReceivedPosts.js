@@ -1,7 +1,6 @@
 export const SortReceivedPosts = (posts) => {
   
     const sortedPosts = posts.map(onePost => {
-        console.log('images: ' + JSON.stringify(onePost.data.preview.images[0].source.url));
         
         const sortedPost = {
             subreddit: onePost.data.subreddit,
@@ -17,10 +16,10 @@ export const SortReceivedPosts = (posts) => {
             num_comments: onePost.data.num_comments,
             author: onePost.data.author
         }
-        console.log('sorted post: ' + JSON.stringify(sortedPost));
+        return sortedPost
         
     })
-    console.log('sorted posts: ' + JSON.stringify(sortedPosts));
+    //console.log('sorted posts: ' + JSON.stringify(sortedPosts));
     
     return sortedPosts
 }
