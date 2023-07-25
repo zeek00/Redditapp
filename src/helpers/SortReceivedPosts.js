@@ -3,13 +3,14 @@ export const SortReceivedPosts = (posts) => {
     const sortedPosts = posts.map(onePost => {
         
         const sortedPost = {
-            subreddit: onePost.data.subreddit,
+            subreddit_name_prefixed: onePost.data.subreddit_name_prefixed,
+            selftext: onePost.data.selftext,
             title: onePost.data.title,
             score: onePost.data.score,
             name: onePost.data.name,
             ups: onePost.data.ups,
             downs: onePost.data.downs,
-            imageUrl: onePost.data.preview.images[0].source.url,
+            // imageUrl: onePost.data.preview.images[0].source.url,
             post_hint: onePost.data.post_hint,
             subbreddit_subscribers: onePost.data.subbreddit_subscribers,
             id: onePost.data.id,

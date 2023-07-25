@@ -4,7 +4,7 @@ require('dotenv').config();
 const client_secret = process.env.CLIENT_SECRET
 const client_id = process.env.CLIENT_ID
 //url to fetch data from
-const url = 'https://www.reddit.com/r/popular/top.json';
+const url = 'https://www.reddit.com/r/popular/top.json?raw_json=1';
 //headers
 const headers = {
     "User-Agent": process.env.USER_AGENT
@@ -52,7 +52,6 @@ const sortData = async ()=>{
             author: onePost.data.author
         }
         return sortedPost
-        console.log('sorted post: ' + JSON.stringify(sortedPost));
         
     })
 };

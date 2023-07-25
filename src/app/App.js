@@ -8,17 +8,21 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import Routes from './routes';
+import Header from '../components/Header/Header';
+import Post from '../components/Posts/Post';
 
 
 
 function App() {
   return (
     <Router>
+      <Header/>
+      <Post/>
       <nav>
         <ul>
           <li>
             <NavLink to={Routes.bestPostsRoute}>
-              <PopularPosts/>
+            <PopularPosts/>
             </NavLink>
           </li>
         </ul>

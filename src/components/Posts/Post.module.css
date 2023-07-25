@@ -1,0 +1,59 @@
+.container{
+    display: flex;
+    min-height: 20rem;
+    width: 70%;
+    margin: 2rem auto;
+    border-radius: 0.2rem;
+    border: 1px solid rgb(152,150,147,0.9);
+}
+
+.container .vote{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    align-items: center;
+    border-right: 1px solid rgb(152,150,147,0.9);
+}
+
+.container .vote p{
+    margin: 0;
+}
+
+.voteFont{
+    font-size: 1.3rem;
+    padding: 0.6rem;
+}
+
+.container .body{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+}
+
+.body .profileInfo{
+    min-height: 1.5rem;
+    width: auto;
+    /* border-bottom: 1px solid grey; */
+
+}
+
+.body .content{
+    min-height: 20rem;
+    width: auto;
+    /* border-bottom: 1px solid grey; */
+}
+
+.body p{
+    
+    width: fit-content;
+    margin-left: 0.5rem;
+}
+
+.body .comment{
+    display: flex;
+}
+
+.commentFont{
+    font-size: 1.5rem;
+    padding: 1rem 0 0 1rem;
+}

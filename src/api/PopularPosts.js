@@ -3,7 +3,7 @@ import { SortReceivedPosts } from '../helpers/SortReceivedPosts';
 import PopulatePosts from './PopulatePosts';
 import { useSelector, useDispatch } from 'react-redux';
 import { addPopularPosts } from "../store/postsSlice"
-
+import Post from '../components/Posts/Post';
 
 const PopularPosts = ()=>{
     const savedPopularPosts = useSelector(state => state.postsReducer.PopularPosts)

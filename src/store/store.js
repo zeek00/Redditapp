@@ -3,7 +3,8 @@ import postsSliceReducer from "./postsSlice"
 
 const store = configureStore({
     reducer: {
-        postsReducer : postsSliceReducer}
-})
+        postsReducer : postsSliceReducer
+    },
+});
 
 export default store
