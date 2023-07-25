@@ -1,19 +1,25 @@
 import { React, useEffect, useState } from 'react'
 import { SortReceivedPosts } from '../helpers/SortReceivedPosts';
+import PopulatePosts from './PopulatePosts';
+import { useSelector, useDispatch } from 'react-redux';
+import { addPopularPosts } from "../store/postsSlice"
+
 
 const PopularPosts = ()=>{
-const [popularPosts, setPopularPosts] = useState([])
+    const savedPopularPosts = useSelector(state => state.postsReducer.PopularPosts)
+    const dispatch = useDispatch()
+    const [popularPosts, setPopularPosts] = useState([])
 
     useEffect(()=>{
-        if (popularPosts.length === 0){
-            getPopularPosts()
-        }
         
+        if (popularPosts.length === 0){
+           getPopularPosts()
+        }        
     }, [])
 
-    const url = 'https://www.reddit.com/r/popular/top.json';
-    const client_secret = process.env.REACT_APP_CLIENT_SECRET
-    const client_id = process.env.REACT_APP_CLIENT_ID
+    //add raw_json=1 param, otherwise <, >, and & will be replaced with &lt;, &gt;, and &amp;, respectively and wont load images.
+    const url = 'https://www.reddit.com/r/popular/top.json?raw_json=1';
+    
     const headers = {
         "User-Agent": process.env.USER_AGENT
     };
@@ -26,14 +32,25 @@ const [popularPosts, setPopularPosts] = useState([])
         }
 
         const data = await response.json();
-        setPopularPosts(data.data.children)
-        console.log(data.data.children)
         const getSortedReceivedPosts = SortReceivedPosts(data.data.children)
         
+        setPopularPosts(getSortedReceivedPosts)
+        dispatch(addPopularPosts(getSortedReceivedPosts))
+        
+        //console.log('received sorted posts ####  '+ JSON.stringify(getSortedReceivedPosts));
+
     } catch (error) {
         console.log('This is the error: \n'+ error);
     }
     }
+    return <div>
+        <ul>
+            {popularPosts.length > 0 ? popularPosts.map(onePost => {
+                return <PopulatePosts onPost={onePost}/>
+}): console.log('no posts')
+} 
+        </ul>  
+    </div>
     
 
 };

@@ -1,13 +1,29 @@
 import './App.css';
 import PopularPosts from '../api/PopularPosts';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+  useRouteMatch,
+} from "react-router-dom";
+import Routes from './routes';
+
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>BEgin</h1>
-      <PopularPosts/>
-    </div>
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to={Routes.bestPostsRoute}>
+              <PopularPosts/>
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </Router>
   );
 }
 
