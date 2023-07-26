@@ -4,6 +4,7 @@ import PopulatePosts from './PopulatePosts';
 import { useSelector, useDispatch } from 'react-redux';
 import { addPopularPosts } from "../store/postsSlice"
 import Post from '../components/Posts/Post';
+import data from './popularDataExample';
 
 const PopularPosts = ()=>{
     const savedPopularPosts = useSelector(state => state.postsReducer.PopularPosts)
@@ -24,15 +25,18 @@ const PopularPosts = ()=>{
         "User-Agent": process.env.USER_AGENT
     };
     const getPopularPosts = async () => {
-        try {
-        const response = await fetch(url, {headers: headers});
+      try { 
+        /*const response = await fetch(url, {headers: headers});
 
         if(!response.ok){
             throw new Error("Request failed with status code: " + response.status);
         }
 
-        const data = await response.json();
+        const data = await response.json();*/
+
+
         const getSortedReceivedPosts = SortReceivedPosts(data.data.children)
+        //console.log('@@@@@ posts data: ' + JSON.stringify(data));
         
         setPopularPosts(getSortedReceivedPosts)
         dispatch(addPopularPosts(getSortedReceivedPosts))
@@ -45,8 +49,10 @@ const PopularPosts = ()=>{
     }
     return <div>
         <ul>
+            
             {popularPosts.length > 0 ? popularPosts.map(onePost => {
-                return <PopulatePosts onPost={onePost}/>
+              return <Post onPost={onePost}/>
+           
 }): console.log('no posts')
 } 
         </ul>  

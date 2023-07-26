@@ -1,7 +1,7 @@
 
 
 const PopulatePosts = (props) => {
-// console.log('img ' + JSON.stringify(props.onPost.imageUrl));
+ console.log('img ' + JSON.stringify(props.onPost));
 
 const clickNumCommentsHandler = () => {
     console.log('clicked numcomments handler');

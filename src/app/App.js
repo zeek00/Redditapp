@@ -17,11 +17,11 @@ function App() {
   return (
     <Router>
       <Header/>
-      <Post/>
+     
       <nav>
         <ul>
           <li>
-            <NavLink to={Routes.bestPostsRoute}>
+            <NavLink to={Routes.popularPostsRoute}>
             <PopularPosts/>
             </NavLink>
           </li>
