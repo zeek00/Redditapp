@@ -1,6 +1,8 @@
- const Routes =  {
-mainPageRoute: () => "/",
+ const PostsRoutes =  {
+homePageRoute: () => "/",
 popularPostsRoute: () => "/popular",
-bestPostsRoute: () => "/best"
+bestPostsRoute: () => "/best",
+post: () => `/:id`,
+search: () => "/search/:value"
 }
-export default Routes
+export default PostsRoutes

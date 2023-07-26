@@ -7,7 +7,11 @@ import {BiMessageDetail} from 'react-icons/bi'
 export default function Post(props) {
 console.log("props:" + JSON.stringify(props))
 
+const clickedComments = () => {
+  console.log("comments button was clicked, post id is: " + (JSON.stringify(props.onPost.id)))
+}
   return (
+    
     <div className={styles.container}>
         <div className={styles.vote}>
             <UpVote />
@@ -16,16 +20,17 @@ console.log("props:" + JSON.stringify(props))
         </div>
         <div className={styles.body}>
             <div className={styles.profileInfo}><p>{}userinfo</p></div>
-            <div className={styles.title}><p>{props.onPost.title}title</p></div>
+            <div className={styles.title}><p>{props.onPost.title}</p></div>
             <img src={`${props.onPost.imageUrl}`} alt="post title name" ></img>
 
             <div className={styles.content}></div>
             <div className={styles.comment}>
                 <BiMessageDetail className={styles.commentFont} /> 
-                <p>{props.onPost.num_comments} Comments</p>
+                <button onClick={clickedComments}>{props.onPost.num_comments} Comments</button>
             </div>
             
         </div>
     </div>
+   
   )
 }
