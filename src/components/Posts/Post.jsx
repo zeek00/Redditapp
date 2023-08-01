@@ -1,14 +1,18 @@
-import React from 'react'
+import {React } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './Post.module.css'
 import UpVote from './Vote/UpVote'
 import DownVote from './Vote/DownVote'
 import {BiMessageDetail} from 'react-icons/bi'
 
 export default function Post(props) {
-console.log("props:" + JSON.stringify(props))
+//console.log("props:" + JSON.stringify(props))
+const goToPage = useNavigate()
 
 const clickedComments = () => {
   console.log("comments button was clicked, post id is: " + (JSON.stringify(props.onPost.id)))
+  goToPage(`/${props.onPost.id}`)
+
 }
   return (
     
