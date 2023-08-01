@@ -5,7 +5,7 @@ const initialState = {
     bestPosts: []
 }
 
-const postsSlice = createSlice({
+const options = {
     name: "postsData",
     initialState,
     reducers: {
@@ -16,7 +16,9 @@ const postsSlice = createSlice({
             state.bestPosts = action.payload
         }
     }
-})
+}
+
+const postsSlice = createSlice(options)
 
 export const { addPopularPosts, addBestPosts } = postsSlice.actions
 export default postsSlice.reducer

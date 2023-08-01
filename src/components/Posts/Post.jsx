@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Post.module.css'
 import UpVote from './Vote/UpVote'
 import DownVote from './Vote/DownVote'
-import {BiMessageDetail} from 'react-icons/bi'
+import { BiMessageDetail } from 'react-icons/bi'
 
 export default function Post(props) {
   return (
