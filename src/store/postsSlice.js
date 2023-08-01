@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     popularPosts: [],
-    bestPosts: []
+    bestPosts: [],
+    currSearchPosts: []
+
+   
 }
 
 const options = {
@@ -14,6 +17,9 @@ const options = {
         },
         addBestPosts(state,action){
             state.bestPosts = action.payload
+        },
+        addCurrSearchPosts(state,action){
+            state.currSearchPosts = action.payload
         }
     }
 }
