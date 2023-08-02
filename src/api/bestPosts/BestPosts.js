@@ -8,12 +8,12 @@ import Post from '../../components/Posts/Post';
 //import bestData from './bestDataExample';
 
 const BestPosts = () =>{
-    const savedBestPosts = useSelector(state => state.postsReducer.BestPosts)
+    const savedBestPosts = useSelector(state => state.postsReducer.bestPosts)
     const dispatch = useDispatch()
-    const [bestPosts, setBestPosts] = useState([])
-
+    const [bestPosts, setBestPosts] = useState(savedBestPosts)
+    console.log('saved best posts: ' + JSON.stringify(savedBestPosts));
+    
     useEffect(()=>{
-        
         if (bestPosts.length === 0){
             getBestPosts()
         }        
@@ -32,18 +32,13 @@ const BestPosts = () =>{
         if(!response.ok){
             throw new Error("Request failed with status code: " + response.status);
         }
-
         const data = await response.json()
 
-
         const getSortedReceivedPosts = SortReceivedPosts(data.data.children)
-        //console.log('@@@@@ posts data: ' + JSON.stringify(data));
-        
-        setBestPosts(getSortedReceivedPosts)
+    
+        setBestPosts(getSortedReceivedPosts)        
         dispatch(addBestPosts(getSortedReceivedPosts))
-        
-        //console.log('received sorted posts ####  '+ JSON.stringify(getSortedReceivedPosts));
-
+      
     } catch (error) {
         console.log('This is the error: \n'+ error);
     }

@@ -12,7 +12,7 @@ console.log('comments replies ' + JSON.stringify(comments));
 
 
 const displayRepliesHandler = (oneComment) => {
-    console.log('oneComment' + JSON.stringify(oneComment));
+   // console.log('oneComment' + JSON.stringify(oneComment));
     const commentReplies = oneComment.replies
 
     if (commentReplies.length > 0){

@@ -6,9 +6,9 @@ import Post from '../../components/Posts/Post';
 import data from './popularDataExample';
 
 const PopularPosts = ()=>{
-    const savedPopularPosts = useSelector(state => state.postsReducer.PopularPosts)
+    const savedPopularPosts = useSelector(state => state.postsReducer.popularPosts)
     const dispatch = useDispatch()
-    const [popularPosts, setPopularPosts] = useState([])
+    const [popularPosts, setPopularPosts] = useState(savedPopularPosts)
 
     useEffect(()=>{
         

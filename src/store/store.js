@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import postsSliceReducer from "./postsSlice"
+import loadingSliceReducer from "./loadingSlice";
 
 const store = configureStore({
     reducer: {
-        postsReducer : postsSliceReducer
+        postsReducer : postsSliceReducer,
+        loadingReducer: loadingSliceReducer
     },
 });
 

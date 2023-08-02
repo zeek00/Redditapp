@@ -2,17 +2,22 @@ import {React, useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import Post from '../../components/Posts/Post'
 import { SortReceivedPosts } from '../../helpers/SortReceivedPosts'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCurrSearchValue, addCurrSearchPosts } from '../../store/postsSlice'
 //import searchData from './searchDataExample'
 
 const SearchPosts = (props) => {
+    const savedSearchedValue = useSelector(state => state.postsReducer.currSearchValue)
+    const savedSearchedPosts = useSelector(state => state.postsReducer.currSearchPosts)
     const {value} = useParams()
-    const [searchedPosts, setSearchedPosts] = useState([])
-
+    const [searchedPosts, setSearchedPosts] = useState(savedSearchedPosts)
+    const dispatch = useDispatch()
     console.log('search value: ' + JSON.stringify(value));
     
-    useEffect(() => {        
+    useEffect(() => { 
+        if(savedSearchedValue !== value) {
             getSortedSearchedData(value)
-        
+        }      
     },[value])
     
     const getSortedSearchedData = async (val) => {
@@ -24,6 +29,8 @@ const SearchPosts = (props) => {
         const sortedData = SortReceivedPosts(searchData.data.children)
         console.log('sorted data: ' + JSON.stringify(sortedData));
         setSearchedPosts(sortedData)
+        dispatch(addCurrSearchPosts(sortedData))
+        dispatch(addCurrSearchValue(value))
         }
         catch(err){
         console.log('err occured: ' + JSON.stringify(err.message));
