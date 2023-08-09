@@ -7,7 +7,7 @@ const Comments = (props) => {
     const comments = props.onComments
     const moreComments = props.onMore
     //add created at...
-console.log('comments replies ' + JSON.stringify(comments));
+//console.log('comments replies ' + JSON.stringify(comments));
 
 
 
@@ -18,14 +18,15 @@ const displayRepliesHandler = (oneComment) => {
     if (commentReplies.length > 0){
      return   <ul className={css.reply}>
          {commentReplies.map(oneReply => {
-          
+            console.log('one reply: ' + JSON.stringify(oneReply));
+            //console.log('one cm: ' + JSON.stringify(commentReplies));
              return <li key={oneReply.id} >
              <DisplayComments onComment={oneReply} />
             
-             {commentReplies.length > 0? displayRepliesHandler(oneReply):""}
+             {oneReply.replies.length > 0 && displayRepliesHandler(oneReply) }
          </li> 
          })}
-                 {oneComment.moreReplies.length > 0?<DisplayMoreComments onMore={oneComment.moreReplies}/>:""}
+            {oneComment.moreReplies.length > 0 && <DisplayMoreComments onMore={oneComment.moreReplies}/>}
 
          <li >
      
@@ -37,13 +38,14 @@ const displayRepliesHandler = (oneComment) => {
 //loop replies
     return  <ul className={css.reply} >
         {comments.map(oneComment => {
+            //console.log('one top layer comment' + JSON.stringify(oneComment));
+            
             return <li key={oneComment.id}>
                <DisplayComments onComment={oneComment}/>
-               {oneComment.replies.length > 0 ? displayRepliesHandler(oneComment):""}
-             
+               {oneComment.replies.length > 0 && displayRepliesHandler(oneComment)}
                </li>
         })}
-        {moreComments.length > 0? <DisplayMoreComments onMore={moreComments}/>:""
+        {moreComments.length > 0 && <DisplayMoreComments onMore={moreComments}/>
         }
       </ul>
    
