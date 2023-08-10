@@ -1,8 +1,8 @@
  import ValidComment from "./ValidComment"
- import SortNestedReplies from "./SortNestedReplies"
+ import SortReplies from "./SortNestedReplies"
  
- const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo) => {
-    //console.log('went to sortCommentNestedReplies');
+const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo) => {
+    console.log('went to sortCommentNestedReplies');
 
     for (let q = 0; q < commentInRepliesData.length; q++) {
         // loops through replies
@@ -21,7 +21,7 @@
                 const newCommentForRepliesData = commentInRepliesData[q].data.replies
                 const newAddRepliesFieldTo = getValidComment.currentComment
 
-                SortNestedReplies(newCommentForRepliesData, newAddRepliesFieldTo)
+                SortReplies.SortNestedReplies(newCommentForRepliesData, newAddRepliesFieldTo)
 
             }
             else {
