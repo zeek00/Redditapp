@@ -23,10 +23,9 @@ const clickedComments = () => {
             <DownVote />
         </div>
         <div className={styles.body}>
-            <div className={styles.profileInfo}><p>{}userinfo</p></div>
+            <div className={styles.profileInfo}><p>{props.onPost.subreddit_name_prefixed}</p></div>
             <div className={styles.title}><p>{props.onPost.title}</p></div>
             <img src={`${props.onPost.imageUrl}`} alt="post title name" ></img>
-
             <div className={styles.content}></div>
             <div className={styles.comment}>
                 <BiMessageDetail className={styles.commentFont} /> 
