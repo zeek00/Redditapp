@@ -1,13 +1,16 @@
-export const SortReceivedPosts = (posts) => {
- // console.log('went to sort data' + JSON.stringify(posts));
+export const SortReceivedPosts =  (posts) => {
+  //console.log('went to sort data' + JSON.stringify(posts));
   
    
     let sortedPostsList = [] 
-    for (let i=0; i < posts.length; i++){
+
+    if (posts.length > 0) {
+         for (let i=0; i < posts.length; i++){
         //console.log('one post: ' + JSON.stringify(posts[i]));
 
         const post = posts[i].data
         const postKeys = Object.keys(post)
+       //console.log('Post keys: ' + JSON.stringify(postKeys));
         
         if (
         postKeys.includes("subreddit_name_prefixed") &&
@@ -21,10 +24,10 @@ export const SortReceivedPosts = (posts) => {
         postKeys.includes("post_hint") &&
         postKeys.includes("id") &&
         postKeys.includes("num_comments") &&
+        postKeys.includes("subreddit_subscribers") &&
         postKeys.includes("author") 
+        
         ){
-            //console.log('val');
-            
             const sortedPost = {
             subreddit_name_prefixed: post.subreddit_name_prefixed,
             selftext: post.selftext,
@@ -35,18 +38,26 @@ export const SortReceivedPosts = (posts) => {
             downs: post.downs,
             imageUrl: post.preview.images[0].source.url,
             post_hint: post.post_hint,
-            subbreddit_subscribers: post.subbreddit_subscribers,
+            subreddit_subscribers: post.subreddit_subscribers,
             id: post.id,
             num_comments: post.num_comments,
-            author: post.author
+            author: post.author,
+           
         }
         sortedPostsList.push(sortedPost)
+
+       
+
 
     }
 
     
 }
+    }
+   
 //console.log('#####sorted data: #####' + JSON.stringify(sortedPostsList));
 
     return sortedPostsList
 }
+
+
