@@ -63,11 +63,6 @@ export const SortReceivedPostAndComments = (data) => {
 }
 
 
-
-
-
-
-
 const sortCommentNestedReplies = (commentForReplies,commentInRepliesData,addRepliesFieldTo) => {
     console.log('went to sortCommentNestedReplies');
 

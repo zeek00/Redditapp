@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addBestPosts } from '../../store/postsSlice';
 import Post from '../../components/Posts/Post';
 //import bestData from './bestDataExample';
+import styles from './BestPosts.module.css'
 
 const BestPosts = () =>{
     const savedBestPosts = useSelector(state => state.postsReducer.BestPosts)
@@ -48,19 +49,22 @@ const BestPosts = () =>{
         console.log('This is the error: \n'+ error);
     }
     }
-    return <div>
-        <ul>
-            
-            {bestPosts.length > 0 ? bestPosts.map(onePost => {
-              return <li key={onePost.id}>
-                <Post onPost={onePost}/>
-                </li>
-           
-}): console.log('no posts')
-} 
-        </ul>  
-    </div>
-    
+    return (
+        <div className={styles.div}>
+        
+            <ul className={styles.ul}>
+                
+                {bestPosts.length > 0 ? bestPosts.map(onePost => {
+                        return (
+                            <li key={onePost.id}>
+                                <Post onPost={onePost}/>
+                            </li>
+                        );
+                    }): console.log('no posts')
+                } 
+            </ul>  
+        </div>
+    );
 
 };
 

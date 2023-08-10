@@ -1,3 +1,5 @@
+import styles from './DisplayComments.module.css'
+
 const DisplayMoreComments = (props) => {
     const moreComments = props.onMore
 
@@ -6,7 +8,7 @@ const DisplayMoreComments = (props) => {
         
     }
 
-    return <button onClick={clickedMoreCommentsHandler}>More Comments {moreComments.length}</button>
+    return <button className={styles.moreComments} onClick={clickedMoreCommentsHandler}>More Comments {moreComments.length}</button>
 
 
 }

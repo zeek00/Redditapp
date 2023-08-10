@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 import PostByIdExample from "./postByIdDataExample";
 import { SortReceivedPostAndComments } from "../../helpers/SortReceivedPostAndComments";
 import Comments from "../../components/comments/Comments";
@@ -45,11 +45,18 @@ const PostById = (props) => {
     }
 
 
-    return <div>
-       {sortedData.length >0 ? <div><Post onPost={sortedData[0].post[0]}/>
-        <Comments onComments={sortedData[0].comments} onMore={sortedData[0].moreComments}/>
-    </div>: <p>No posts found</p>}
-    </div>
+    return (
+        <div>
+            {
+                sortedData.length > 0 ? 
+                <div>
+                    <Post onPost={sortedData[0].post[0]}/>
+                    <Comments onComments={sortedData[0].comments} onMore={sortedData[0].moreComments}/>
+                </div> : 
+                <p>No posts found</p>
+            }
+        </div>
+    );
         
 }
 
