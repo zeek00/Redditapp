@@ -22,10 +22,10 @@ const Comments = (props) => {
                     return <li className={styles.firstli} key={oneReply.id} >
                         <DisplayComments onComment={oneReply} />
 
-                        {commentReplies.length > 0 ? displayRepliesHandler(oneReply) : ""}
+                        {commentReplies.length > 0 && displayRepliesHandler(oneReply)}
                     </li>
                 })}
-                {oneComment.moreReplies.length > 0 ? <DisplayMoreComments onMore={oneComment.moreReplies} /> : ""}
+                {oneComment.moreReplies.length > 0 && <DisplayMoreComments onMore={oneComment.moreReplies} />}
 
                 <li >
 
@@ -39,11 +39,11 @@ const Comments = (props) => {
         {comments.map(oneComment => {
             return <li className={styles.secondli} key={oneComment.id}>
                 <DisplayComments onComment={oneComment} />
-                {oneComment.replies.length > 0 ? displayRepliesHandler(oneComment) : ""} 
+                {oneComment.replies.length > 0 && displayRepliesHandler(oneComment)} 
 
             </li>
         })}
-        {moreComments.length > 0 ? <DisplayMoreComments onMore={moreComments} /> : ""
+        {moreComments.length > 0 && <DisplayMoreComments onMore={moreComments} />
         }
     </ul>
 

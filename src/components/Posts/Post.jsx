@@ -26,7 +26,7 @@ const clickedComments = () => {
         <div className={styles.body}>
             <div className={styles.profileInfo}>
               <img alt="" />
-              <p>{props.onPost.author}</p>
+              <p>{props.onPost.subreddit_name_prefixed}</p>
             </div>
             
             <div className={styles.title}>
