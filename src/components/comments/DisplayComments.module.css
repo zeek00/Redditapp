@@ -1,0 +1,88 @@
+
+
+
+.container{
+   position: relative;
+   top: 5vh;
+   list-style: none;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+   background-color: #fff;
+   color: #000;
+   margin: 0 auto;
+   width: 90%;
+}
+
+.replies {
+   list-style: none;
+   border-left: 1.3px dotted silver;
+   /* background-color: azure; */
+   color: #000;
+}
+
+.firstli{
+   font-size: 0.9rem;
+   word-wrap: break-word;
+   background-color: rgb(242,242,242);
+}
+
+.secondli{
+   
+}
+
+.commentContain{
+   flex-direction: column;
+   
+}
+
+.commentContain h3{
+   font-size: 1rem;
+   padding-left: 0.6rem;
+   
+}
+
+.commentContain p{
+   list-style: none;
+   padding-left: 0.6rem;
+   
+}
+
+.moreComments{
+   border: none;
+   background: none;
+   font-weight: 600;
+   text-decoration: underline;
+   
+}
+.moreComments:hover{
+   text-decoration: underline;
+   color: tomato;
+}
+
+@media (max-width: 414px) {
+   .container{
+       width: 80%;
+   }
+
+}
+
+@media (min-width: 576px) {
+   .container{
+       width: 90%;
+   }
+}
+
+   /* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+ 
+
+}
+
+
+@media screen and (min-width: 992px) {
+   .container{
+       width: 50%;
+   }
+ }

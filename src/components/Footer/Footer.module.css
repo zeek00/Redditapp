@@ -1,0 +1,12 @@
+.container{
+    position: fixed;
+    bottom: 0;
+    background-color: black;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}

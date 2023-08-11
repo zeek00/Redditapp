@@ -1,0 +1,228 @@
+.container{
+    /* border: 2px solid rebeccapurple; */
+    display: grid;
+    position: fixed;
+    top: 0;
+    height: 9vh;
+    width: 100%;
+    z-index: 10;
+    background: #000;
+    /* background: linear-gradient(to bottom, #DC143C 0%, #CD052D 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DC143C), color-stop(100%, #CD052D));
+    background: -webkit-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+    background: -moz-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+    background: -o-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+    background: -ms-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DC143C', endColorstr='#CD052D', GradientType=0); */
+    grid-template-columns: repeat (6, 1fr);
+    grid-template-areas: "l l s s b b ";
+    
+}
+
+.search{
+    /* border: 1px solid red; */
+    grid-area: s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
+}
+
+.logo{
+    /* border: 1px solid green; */
+    grid-area: l;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.button{
+    /* border: 1px solid orange; */
+    grid-area: b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+@media (min-width: 414px) {
+    .container{
+        /* border: 2px solid rebeccapurple; */
+        display: grid;
+        position: fixed;
+        top: 0;
+        height: 8vh;
+        width: 100%;
+        z-index: 10;
+        background: #000;
+        /* background: linear-gradient(to bottom, #DC143C 0%, #CD052D 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DC143C), color-stop(100%, #CD052D));
+        background: -webkit-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -moz-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -o-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -ms-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DC143C', endColorstr='#CD052D', GradientType=0); */
+        grid-template-columns: repeat (6, 1fr);
+        grid-template-areas: "l l s s b b ";
+        
+    }
+    
+    .search{
+        /* border: 1px solid red; */
+        grid-area: s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+        
+    }
+    
+    .logo{
+        /* border: 1px solid green; */
+        grid-area: l;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .button{
+        /* border: 1px solid orange; */
+        grid-area: b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+}
+
+@media (min-width: 576px) {
+    .container{
+        /* border: 2px solid rebeccapurple; */
+        display: grid;
+        position: fixed;
+        top: 0;
+        height: 8vh;
+        width: 100%;
+        z-index: 10;
+        background: #000;
+        /* background: linear-gradient(to bottom, #DC143C 0%, #CD052D 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DC143C), color-stop(100%, #CD052D));
+        background: -webkit-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -moz-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -o-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -ms-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DC143C', endColorstr='#CD052D', GradientType=0); */
+        grid-template-columns: repeat (6, 1fr);
+        grid-template-areas: "s l l l b b ";
+        
+    }
+    
+    .search{
+        /* border: 1px solid red; */
+        grid-area: s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+        
+    }
+    
+    .logo{
+        /* border: 1px solid green; */
+        grid-area: l;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .button{
+        /* border: 1px solid orange; */
+        grid-area: b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+}
+
+    /* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+  
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .container{
+        /* border: 2px solid rebeccapurple; */
+        display: grid;
+        position: fixed;
+        top: 0;
+        height: 10vh;
+        width: 100%;
+        z-index: 10;
+        background: #000;
+        /* background: linear-gradient(to bottom, #DC143C 0%, #CD052D 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DC143C), color-stop(100%, #CD052D));
+        background: -webkit-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -moz-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -o-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        background: -ms-linear-gradient(top, #DC143C 0%, #CD052D 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DC143C', endColorstr='#CD052D', GradientType=0); */
+        grid-template-columns: repeat (6, 1fr);
+        grid-template-areas: "s s l l b b ";
+        
+    }
+    
+    .search{
+        /* border: 1px solid red; */
+        grid-area: s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+        
+    }
+    
+    .logo{
+        /* border: 1px solid green; */
+        grid-area: l;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .button{
+        /* border: 1px solid orange; */
+        grid-area: b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    
+
+}
+
+/* X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+   
+    
+}
+
+/* XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+    
+}
