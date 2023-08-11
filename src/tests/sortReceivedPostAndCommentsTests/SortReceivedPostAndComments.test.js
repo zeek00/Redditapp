@@ -5,7 +5,7 @@ import { validCommentData, commentInRepliesData } from './SortReceivedPostAndCom
 import { validCommentDataExpectedResults } from './SortReceivedPostAndCommentsDataExpectedResults'
 //import SortCommentNestedReplies from '../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies';
 
-import SortNestedReplies from '../../helpers/sortReceivedPostAndCComments/SortNestedReplies';
+import SortReplies from '../../helpers/sortReceivedPostAndCComments/SortNestedReplies';
 import ValidComment from '../../helpers/sortReceivedPostAndCComments/ValidComment';
 // import SortReceivedPostAndComments from '../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments';
 
@@ -15,11 +15,10 @@ import ValidComment from '../../helpers/sortReceivedPostAndCComments/ValidCommen
 
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
-/*
+
 describe('comment validation', () => {
     
     it('receiving empty comment', () => {
-
         const comment = {}
         const result = ValidComment(comment)
         const expectedResult = { isValid: false }
@@ -27,47 +26,34 @@ describe('comment validation', () => {
         expect(result).toMatchObject(expectedResult)
     });
 
-    
     it('receiving a comment with correct fields', () => {
-
         const comment = validCommentData.commentWithCorrectFields
         const result = ValidComment(comment)
         const expectedResult = validCommentDataExpectedResults.commentWithCorrectFields
+        
         expect(result).toMatchObject(expectedResult)
-
     });
-    it('receiving a comment with createdUTC field missing', () => {
 
+    it('receiving a comment with createdUTC field missing', () => {
         const comment = validCommentData.commentWithCreatedUTCFieldMissing
         const result = ValidComment(comment)
+        
         const expectedResult = { isValid: false }
         expect(result).toMatchObject(expectedResult)
-        
     });
-
-})*/
-
+})
 
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-
-jest.mock("../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies")
-const SortCommentNestedReplies = require("../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies")
-// const mod = require("../../helpers/sortReceivedPostAndCComments/SortNestedReplies")
-// SortCommentNestedReplies = jest.fn()
 describe('sorting nested replies' , () => {
-    // empty string, no more
-    //jest.mock('sortCommentNestedReplies')
     it ('commentForReplies replies field is empty string, sortNestedReplies not called', () => {
    const commentForReplies = ""
    const addRepliesFieldTo = commentInRepliesData.addRepliesFieldTo
-   //SortCommentNestedReplies = jest.fn((commentForReplies, addRepliesFieldTo) => {console.log('ssddff')})
+    let spySortCommentNestedReplies = jest.spyOn(SortReplies, "SortCommentNestedReplies")
 
-    //const mochSortCommentNestedReplies = jest.fn("sortCommentNestedReplies")
-    SortNestedReplies(commentForReplies, addRepliesFieldTo)
+SortReplies.SortNestedReplies(commentForReplies, addRepliesFieldTo)
 
-    expect(SortCommentNestedReplies).not.toBeCalled()
+    expect(spySortCommentNestedReplies).not.toBeCalled()
     });
  
     //################################################################
@@ -112,13 +98,11 @@ describe('sorting nested replies' , () => {
             moreReplies: []
         }
         const  commentInRepliesData = commentForReplies.data.children
-        //SortCommentNestedReplies = jest.fn()
-          
+        SortReplies.SortCommentNestedReplies = jest.fn(() => {console.log('jest fn');
+        })
+        SortReplies.SortNestedReplies(commentForReplies, addRepliesFieldTo)
+        expect(SortReplies.SortCommentNestedReplies).toBeCalled()
 
-        //const mockValidComment = jest.fn("validComment")
-        SortNestedReplies(commentForReplies, addRepliesFieldTo)
-        //expect(mockValidComment).toHaveBeenCalled()
-        //SortCommentNestedReplies(commentInRepliesData, addRepliesFieldTo)
-        expect(SortCommentNestedReplies).toBeCalled()
+
          })
 })

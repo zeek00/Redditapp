@@ -1,5 +1,5 @@
 import { SortReceivedPosts } from "./SortReceivedPosts";
-
+import SortNestedReplies from "./sortReceivedPostAndCComments/SortNestedReplies";
 
 
 export const SortReceivedPostAndComments = (data) => {
@@ -40,7 +40,7 @@ export const SortReceivedPostAndComments = (data) => {
                     moreReplies: []
                     }
 
-                    sortNestedReplies(currentData, currentData.data, currentComment)
+                    SortNestedReplies(currentData, currentData.data, currentComment)
                     
                     sortedData.comments.push(currentComment)
                     }
@@ -62,69 +62,3 @@ export const SortReceivedPostAndComments = (data) => {
     return sortedDataList
 }
 
-
-const sortCommentNestedReplies = (commentForReplies,commentInRepliesData,addRepliesFieldTo) => {
-    console.log('went to sortCommentNestedReplies');
-
-    for (let q=0;q < commentInRepliesData.length; q++){
-        // loops through replies
-
-        const currentCommentInRepliesData = commentInRepliesData[q].data
-         if (commentInRepliesData[q].kind === "t1"){
-
-            const repliesComment = {
-                id: currentCommentInRepliesData.id,
-                author: currentCommentInRepliesData.author,
-                createdUTC: currentCommentInRepliesData.createdUTC,
-                downs: currentCommentInRepliesData.downs,
-                ups: currentCommentInRepliesData.ups,
-                body: currentCommentInRepliesData.body,
-                replies: [],
-                moreReplies: []
-                }
-                //push to the comments field
-                addRepliesFieldTo.replies.push(repliesComment)
-
-             //   console.log('commentForReplies.replies ' + JSON.stringify(commentForReplies.replies));
-                
-                const newCommentForReplies = commentForReplies.data.replies.data.children[q]
-                const newCommentForRepliesData = newCommentForReplies.data
-                const newAddRepliesFieldTo = repliesComment
-
-                sortNestedReplies(newCommentForReplies,newCommentForRepliesData, newAddRepliesFieldTo)
-        }
-        else if (commentInRepliesData[q].kind === "more"){
-            addRepliesFieldTo.moreReplies.push(currentCommentInRepliesData.children)
-        }
-        else {
-            console.log('comment replies data kind is not t1 or more it is: ');
-        }
-    }  
-}
-
-
-const sortNestedReplies = (commentForReplies, commentForRepliesData, addRepliesFieldTo) => {
-    //    console.log('sortNestedReplies called' + JSON.stringify(commentForReplies));
-        //function sortNestedReplies will keep changing 3 vars below
-                  //  let commentForReplies = currentData
-                  //  let commentForRepliesData = commentForReplies.data
-                   // let addRepliesFieldTo = currentComment
-                    console.log('went to sortNestedReplies');
-                    
-        
-        if (typeof commentForRepliesData.replies === "string" ){
-            console.log('replies is a string');
-        }
-        else if (typeof commentForRepliesData.replies === "object"){
-            console.log('replies is an obj');
-             const commentInReplies = commentForRepliesData.replies
-                let commentInRepliesData = commentInReplies.data.children
-          //call fnc
-          sortCommentNestedReplies(commentForReplies,commentInRepliesData,addRepliesFieldTo)
-
-            commentForRepliesData = commentForReplies.data  
-        }
-        else {
-            console.log('something went wrong, replies is not an obj or a str')
-        }
-   }

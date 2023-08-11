@@ -1,6 +1,6 @@
 import { SortReceivedPosts } from "../SortReceivedPosts";
 import ValidComment from "./ValidComment";
-// import SortNestedReplies from "./SortNestedReplies";
+import SortNestedReplies from "./SortNestedReplies";
 
 //should return a message? easier for testing?
  const SortReceivedPostAndComments = (data) => {
@@ -41,7 +41,7 @@ import ValidComment from "./ValidComment";
 
 
                         if (getValidComment.isValid) {
-                            // SortNestedReplies(currentData.data.replies, getValidComment.currentComment)
+                            SortNestedReplies(currentData.data.replies, getValidComment.currentComment)
 
                             sortedData.comments.push(getValidComment.currentComment)
                         }
