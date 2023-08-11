@@ -2,6 +2,8 @@
 
 
 .container{
+   position: relative;
+   top: 5vh;
    list-style: none;
    padding: 0;
    display: flex;
@@ -9,7 +11,7 @@
    background-color: #fff;
    color: #000;
    margin: 0 auto;
-   width: 70%;
+   width: 90%;
 }
 
 .replies {
@@ -57,3 +59,30 @@
    text-decoration: underline;
    color: tomato;
 }
+
+@media (max-width: 414px) {
+   .container{
+       width: 80%;
+   }
+
+}
+
+@media (min-width: 576px) {
+   .container{
+       width: 90%;
+   }
+}
+
+   /* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+ 
+
+}
+
+
+@media screen and (min-width: 992px) {
+   .container{
+       width: 50%;
+   }
+ }

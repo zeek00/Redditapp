@@ -5,9 +5,9 @@ import { validCommentData, commentInRepliesData } from './SortReceivedPostAndCom
 import { validCommentDataExpectedResults } from './SortReceivedPostAndCommentsDataExpectedResults'
 //import SortCommentNestedReplies from '../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies';
 
-//import SortNestedReplies from '../../helpers/sortReceivedPostAndCComments/SortNestedReplies';
+import SortNestedReplies from '../../helpers/sortReceivedPostAndCComments/SortNestedReplies';
 import ValidComment from '../../helpers/sortReceivedPostAndCComments/ValidComment';
-import SortReceivedPostAndComments from '../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments';
+// import SortReceivedPostAndComments from '../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments';
 
 
 //ps clear mocks for each test when needed
@@ -27,6 +27,7 @@ describe('comment validation', () => {
         expect(result).toMatchObject(expectedResult)
     });
 
+    
     it('receiving a comment with correct fields', () => {
 
         const comment = validCommentData.commentWithCorrectFields
@@ -51,10 +52,10 @@ describe('comment validation', () => {
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
-//jest.mock("../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies")
-//const SortCommentNestedReplies = require("../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies")
-const mod = require("../../helpers/sortReceivedPostAndCComments/SortNestedReplies")
-mod.SortCommentNestedReplies = jest.fn()
+jest.mock("../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies")
+const SortCommentNestedReplies = require("../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies")
+// const mod = require("../../helpers/sortReceivedPostAndCComments/SortNestedReplies")
+// SortCommentNestedReplies = jest.fn()
 describe('sorting nested replies' , () => {
     // empty string, no more
     //jest.mock('sortCommentNestedReplies')
@@ -64,9 +65,9 @@ describe('sorting nested replies' , () => {
    //SortCommentNestedReplies = jest.fn((commentForReplies, addRepliesFieldTo) => {console.log('ssddff')})
 
     //const mochSortCommentNestedReplies = jest.fn("sortCommentNestedReplies")
-    mod.SortNestedReplies(commentForReplies, addRepliesFieldTo)
+    SortNestedReplies(commentForReplies, addRepliesFieldTo)
 
-    expect(mod.SortCommentNestedReplies).not.toBeCalled()
+    expect(SortCommentNestedReplies).not.toBeCalled()
     });
  
     //################################################################
@@ -115,9 +116,9 @@ describe('sorting nested replies' , () => {
           
 
         //const mockValidComment = jest.fn("validComment")
-        mod.SortNestedReplies(commentForReplies, addRepliesFieldTo)
+        SortNestedReplies(commentForReplies, addRepliesFieldTo)
         //expect(mockValidComment).toHaveBeenCalled()
         //SortCommentNestedReplies(commentInRepliesData, addRepliesFieldTo)
-        expect(mod.SortCommentNestedReplies).toBeCalled()
+        expect(SortCommentNestedReplies).toBeCalled()
          })
 })
