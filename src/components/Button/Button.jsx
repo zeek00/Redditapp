@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './Button.module.css'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PostsRoutes from '../../app/routes';
 
 export default function Button(props) {
   return (
-    <Link to={PostsRoutes.bestPostsRoute()} className={styles.button} >
+    <NavLink to={props.to} className={styles.button} >
         {props.name}
-    </Link>
+    </NavLink>
   );
 }
