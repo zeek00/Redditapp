@@ -1,13 +1,13 @@
 
 
 import { React, useEffect, useState } from 'react'
-import { SortReceivedPosts } from '../../helpers/SortReceivedPosts'; 
 import { useSelector, useDispatch } from 'react-redux';
 import { addBestPosts } from '../../store/postsSlice';
 import Post from '../../components/Posts/Post';
 import bestData from './bestDataExample';
 import styles from './BestPosts.module.css'
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
+const {SortReceivedPosts } = require('../../helpers/SortReceivedPosts')
 
 const BestPosts = () => {
     const isLoading = useSelector(state => state.loadingReducer.loading)

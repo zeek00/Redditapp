@@ -1,4 +1,4 @@
-export const SortReceivedPosts =  (posts) => {
+module.exports.SortReceivedPosts =  (posts) => {
   //console.log('went to sort data' + JSON.stringify(posts));
   
    

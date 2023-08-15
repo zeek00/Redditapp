@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PostByIdExample from "./postByIdDataExample";
-import SortReceivedPostAndComments from "../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments";
 import Comments from "../../components/comments/Comments";
 import Post from "../../components/Posts/Post";
 import { useDispatch, useSelector } from "react-redux";
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
+//const {SortReceivedPostAndComments} = require("../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments") ;
+import * as SortPostAndComments from "../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments"
 
 const PostById = (props) => {
     const isLoading = useSelector(state => state.loadingReducer.loading)
@@ -36,7 +37,7 @@ const PostById = (props) => {
         }
         else {
             //###### sort data with fetched posts below:
-            const sortedReceivedPost = SortReceivedPostAndComments(receivedDataByIdJson)
+            const sortedReceivedPost = SortPostAndComments.SortReceivedPostAndComments(receivedDataByIdJson)
             //console.log('###### received sorted data to set ######## ' + JSON.stringify(sortedReceivedPost));
 
             setSortedData(sortedReceivedPost)

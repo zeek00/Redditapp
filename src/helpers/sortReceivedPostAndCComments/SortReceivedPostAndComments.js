@@ -1,9 +1,12 @@
-import { SortReceivedPosts } from "../SortReceivedPosts";
-import ValidComment from "./ValidComment";
-import SortNestedReplies from "./SortNestedReplies";
+//import {SortReceivedPosts} from "../SortReceivedPosts";
+import * as ValComment from "./ValidComment";
+//const {ValidComment} = require("./ValidComment")
+//const {SortReceivedPosts} = require("../SortReceivedPosts")
+import * as SortPosts from "../SortReceivedPosts"
+
 
 //should return a message? easier for testing?
- const SortReceivedPostAndComments = (data) => {
+ export const SortReceivedPostAndComments = (data) => {
     console.log('data in SortReceivedComments ' + JSON.stringify(data));
     const sortedDataList = []
     const sortedData = {
@@ -18,7 +21,7 @@ import SortNestedReplies from "./SortNestedReplies";
         // more then 0 comments
         if (oneData.length > 0) {
             if (oneData[0].kind === "t3") {
-                const sortedPost = SortReceivedPosts(oneData)
+                const sortedPost = SortPosts.SortReceivedPosts(oneData)
                 //console.log('SORTED post @@@@@@@@@@@@@@@@@ ' + JSON.stringify(sortedPost));
 
                 sortedData["post"] = sortedPost
@@ -35,13 +38,16 @@ import SortNestedReplies from "./SortNestedReplies";
                         //console.log('data #### ' + JSON.stringify(currentData.data));
 
                         // validate fields and return valid comment if possible
-                        const getValidComment = ValidComment(oneComment)
+                        const getValidComment = ValComment.ValidComment(oneComment)
 
                         //console.log('getValidComment ' + JSON.stringify(getValidComment));
 
 
                         if (getValidComment.isValid) {
+                            console.log('?????  getValidComment.currentComment before SortNestedReplies ' + JSON.stringify(getValidComment.currentComment));
+                            
                             SortNestedReplies(currentData.data.replies, getValidComment.currentComment)
+                            console.log('????? !!!!!! getValidComment.currentComment after SortNestedReplies ' + JSON.stringify(getValidComment.currentComment));
 
                             sortedData.comments.push(getValidComment.currentComment)
                         }
@@ -78,7 +84,66 @@ import SortNestedReplies from "./SortNestedReplies";
 
 
 
+//  #######     SortNestedReplies      ####### 
+export const SortNestedReplies = (commentForRepliesData, addRepliesFieldTo) => {
+    
+    console.log('sortNestedReplies called' + JSON.stringify(commentForRepliesData));
 
-export default SortReceivedPostAndComments
+if (typeof commentForRepliesData === "string") {
+    // console.log('replies is a string');
+}
+else if (typeof commentForRepliesData === "object" &&
+!Array.isArray(commentForRepliesData) &&
+commentForRepliesData !== null) {
+    const  commentInRepliesData = commentForRepliesData.data.children
+    SortCommentNestedReplies(commentInRepliesData, addRepliesFieldTo)
+}
+else {
+    console.log('something went wrong, replies is not an obj or a str' + JSON.stringify(commentForRepliesData))
+}
+
+}
+
+//  #######     SortCommentNestedReplies      ####### 
+export const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo) => {
+console.log('went to sortCommentNestedReplies');
+
+for (let q = 0; q < commentInRepliesData.length; q++) {
+    // loops through replies
+
+    const currentCommentInRepliesData = commentInRepliesData[q].data
+    if (commentInRepliesData[q].kind === "t1") {
+        console.log('commentInRepliesData[q].kind === "t1"');
+        
+        // validate fields and return valid comment if possible
+       const getValidComment = ValComment.ValidComment(currentCommentInRepliesData)
+         console.log('###    #####    ####   getValidComment ' + JSON.stringify(getValidComment));
+
+        if (getValidComment.isValid) {
+            //push to valid comments replies field
+            addRepliesFieldTo.replies.push(getValidComment.currentComment)
+
+            const newCommentForRepliesData = commentInRepliesData[q].data.replies
+            const newAddRepliesFieldTo = getValidComment.currentComment
+            
+            SortNestedReplies(newCommentForRepliesData, newAddRepliesFieldTo)
+            console.log('after called SortNestedReplies');
+            
+        }
+        else {
+            console.log('#####  not valid reply comment #######   ' + JSON.stringify(currentCommentInRepliesData));
+
+        }
+    }
+    else if (commentInRepliesData[q].kind === "more") {
+        addRepliesFieldTo.moreReplies.push(currentCommentInRepliesData.children)
+    }
+    else {
+        console.log('comment replies data kind is not t1 or more it is: ');
+    }
+}
+}
+
+
 
 

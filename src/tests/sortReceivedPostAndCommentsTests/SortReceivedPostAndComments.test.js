@@ -5,9 +5,11 @@ import { validCommentData, commentInRepliesData } from './SortReceivedPostAndCom
 import { validCommentDataExpectedResults } from './SortReceivedPostAndCommentsDataExpectedResults'
 //import SortCommentNestedReplies from '../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies';
 
-import SortReplies from '../../helpers/sortReceivedPostAndCComments/SortNestedReplies';
-import ValidComment from '../../helpers/sortReceivedPostAndCComments/ValidComment';
-// import SortReceivedPostAndComments from '../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments';
+//import SortReplies from '../../helpers/sortReceivedPostAndCComments/SortNestedReplies';
+import * as SortComments from '../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments';
+
+
+import * as ValidCom from '../../helpers/sortReceivedPostAndCComments/ValidComment';
 
 
 //ps clear mocks for each test when needed
@@ -16,6 +18,45 @@ import ValidComment from '../../helpers/sortReceivedPostAndCComments/ValidCommen
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 
+
+describe("Sort Comment Nested Replies", () => {
+
+    it("comment In Replies Data kind is t1 and isValid commit", () => {
+
+        const sortCommentNestedRepliesParam1 = commentInRepliesData.replyCommentWithObjField.data.children
+        const currComment = validCommentData.commentWithCorrectFields
+        const validCommentSpyToReturn = {
+            isValid: true,
+            currentComment: currComment
+        }
+
+        const validCommentSpy = jest.spyOn(ValidCom, "ValidComment").mockImplementation(() => {
+            console.log('validCommentSpy worked');
+            
+            return validCommentSpyToReturn;
+        })
+       const sortNestedRepliesSpy = jest.spyOn(SortComments, "SortNestedReplies").mockImplementation(() => {
+        console.log('sortNestedRepliesSpy was called');
+        
+       })
+
+        SortComments.SortCommentNestedReplies(sortCommentNestedRepliesParam1, commentInRepliesData.addRepliesFieldTo)
+      expect(validCommentSpy).toBeCalled()
+        expect(validCommentSpy).toHaveReturnedWith(validCommentSpyToReturn)
+       expect(sortNestedRepliesSpy).toBeCalled()
+
+        expect(sortNestedRepliesSpy).toHaveBeenCalledWith(sortCommentNestedRepliesParam1[0].data.replies, currComment)
+        validCommentSpy.mockRestore();
+        sortNestedRepliesSpy.mockRestore();
+
+    })
+
+
+})
+
+
+
+/*
 describe('comment validation', () => {
     
     it('receiving empty comment', () => {
@@ -44,65 +85,36 @@ describe('comment validation', () => {
 })
 
 
+//###############################################################################################
 
 describe('sorting nested replies' , () => {
+    const addRepliesFieldTo = commentInRepliesData.addRepliesFieldTo
+    const objCommentForReplies = commentInRepliesData.replyCommentWithObjField
+    const emptyCommentForReplies = ""
+    const listCommentForReplies = []
     it ('commentForReplies replies field is empty string, sortNestedReplies not called', () => {
-   const commentForReplies = ""
-   const addRepliesFieldTo = commentInRepliesData.addRepliesFieldTo
-    let spySortCommentNestedReplies = jest.spyOn(SortReplies, "SortCommentNestedReplies")
+        
+        let spySortCommentNestedReplies = jest.spyOn(SortComments, "SortCommentNestedReplies")
+        SortComments.SortNestedReplies(emptyCommentForReplies, addRepliesFieldTo)
 
-SortReplies.SortNestedReplies(commentForReplies, addRepliesFieldTo)
-
-    expect(spySortCommentNestedReplies).not.toBeCalled()
-    });
- 
-    //################################################################
-
+        expect(spySortCommentNestedReplies).not.toBeCalled()
+        spySortCommentNestedReplies.mockRestore()
+ });
     it ('commentForReplies replies field is an object, sortNestedReplies is called', () => {
-        const commentForReplies =  {
-            "kind": "Listing",
-            "data": {
-                "children": [
-                    {
-                        "kind": "t1",
-                        "data": {
-                            "subreddit_id": "t5_dyqlw",
-                            "subreddit": "clevercomebacks",
-                            "replies": "",
-                            "id": "jtdy6g4",
-                            "author": "StinkyMcFartBalls",
-                            "created_utc": 1690294670.0,
-                            "parent_id": "t1_jtcy1tw",
-                            "score": 22,
-                            "author_fullname": "t2_q8cqh47d",
-                            "body": "Threw me off for a second",
-                            "name": "t1_jtdy6g4",
-                            "downs": 0,
-                            "link_id": "t3_159056w",
-                            "created": 1690294670.0,
-                            "subreddit_name_prefixed": "r/clevercomebacks",
-                            "ups": 22
-                        }
-                    }]
-            }
-        }
-                       
-        const addRepliesFieldTo = {
-            id: "id",
-            author: "author",
-            downs: "downs",
-            ups: "ups",
-            body: "body",
-            subreddit_name_prefixed: "subreddit_name_prefixed",
-            replies: [],
-            moreReplies: []
-        }
-        const  commentInRepliesData = commentForReplies.data.children
-        SortReplies.SortCommentNestedReplies = jest.fn(() => {console.log('jest fn');
+        const  commentInRepliesData = objCommentForReplies.data.children
+
+        const sortNestedCommentsRepliesSpy = jest.spyOn(SortComments, "SortCommentNestedReplies").mockImplementation(() => { return ; });
+        SortComments.SortNestedReplies(objCommentForReplies, addRepliesFieldTo)
+
+        expect(sortNestedCommentsRepliesSpy).toBeCalledWith(commentInRepliesData, addRepliesFieldTo)
+        sortNestedCommentsRepliesSpy.mockRestore()
+         });
+    it ('commentForReplies replies field is a list, sortNestedReplies is not called', () => {
+        let spySortCommentNestedReplies = jest.spyOn(SortComments, "SortCommentNestedReplies")
+        SortComments.SortNestedReplies(listCommentForReplies, addRepliesFieldTo)
+
+        expect(spySortCommentNestedReplies).not.toBeCalled()
+        spySortCommentNestedReplies.mockRestore()
+        });        
         })
-        SortReplies.SortNestedReplies(commentForReplies, addRepliesFieldTo)
-        expect(SortReplies.SortCommentNestedReplies).toBeCalled()
-
-
-         })
-})
+        */

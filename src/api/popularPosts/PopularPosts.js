@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react'
-import { SortReceivedPosts } from '../../helpers/SortReceivedPosts';
 import { sortAbout } from '../../helpers/sortAbout';
 import { useSelector, useDispatch } from 'react-redux';
 import { addPopularPosts} from "../../store/postsSlice"
@@ -8,6 +7,7 @@ import popularDataExample from './popularDataExample';
 import styles from './PopularPosts.module.css'
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
 
+const {SortReceivedPosts } = require('../../helpers/SortReceivedPosts')
 const PopularPosts = ()=>{
     const isLoading = useSelector(state => state.loadingReducer.loading)
     const savedPopularPosts = useSelector(state => state.postsReducer.popularPosts)

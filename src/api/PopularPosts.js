@@ -1,10 +1,10 @@
 import { React, useEffect, useState } from 'react'
-import { SortReceivedPosts } from '../helpers/SortReceivedPosts';
 import PopulatePosts from './PopulatePosts';
 import { useSelector, useDispatch } from 'react-redux';
 import { addPopularPosts } from "../store/postsSlice"
 import Post from '../components/Posts/Post';
 import styles from './general.module.css'
+const {SortReceivedPosts } = require('../../helpers/SortReceivedPosts')
 
 const PopularPosts = ()=>{
     const savedPopularPosts = useSelector(state => state.postsReducer.PopularPosts)

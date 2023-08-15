@@ -1,4 +1,4 @@
- const ValidComment = (commentToValidate) => {
+export const ValidComment = (commentToValidate) => {
 
     const commentKeys = Object.keys(commentToValidate)
     console.log('comment keys: ' + JSON.stringify(commentKeys));
@@ -57,4 +57,4 @@
     }
 }
 
-export default ValidComment
+
