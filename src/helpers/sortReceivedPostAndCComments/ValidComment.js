@@ -1,6 +1,8 @@
 export const ValidComment = (commentToValidate) => {
 
     const commentKeys = Object.keys(commentToValidate)
+    console.log('%%% commentToValidate: ' + JSON.stringify(commentToValidate));
+
     console.log('comment keys: ' + JSON.stringify(commentKeys));
     if (commentKeys.length !== 0) {
 
@@ -14,7 +16,7 @@ export const ValidComment = (commentToValidate) => {
             commentKeys.includes("subreddit") &&
             (commentKeys.includes("createdUTC") || commentKeys.includes("created_utc"))
         ) {
-            console.log('correct');
+          //  console.log('correct');
 
             const currentComment = {
                 id: commentToValidate.id,

@@ -7,12 +7,12 @@ const Comments = (props) => {
     const comments = props.onComments
     const moreComments = props.onMore
     //add created at...
-    console.log('comments replies ' + JSON.stringify(comments));
+    //console.log('comments replies ' + JSON.stringify(comments));
 
 
 
     const displayRepliesHandler = (oneComment) => {
-        console.log('oneComment' + JSON.stringify(oneComment));
+       // console.log('oneComment' + JSON.stringify(oneComment));
         const commentReplies = oneComment.replies
 
         if (commentReplies.length > 0) {
