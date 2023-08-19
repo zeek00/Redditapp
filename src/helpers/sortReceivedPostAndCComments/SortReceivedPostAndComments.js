@@ -100,6 +100,8 @@ export const SortNestedReplies = (commentForRepliesData, addRepliesFieldTo) => {
         const commentInRepliesData = commentForRepliesData.data.children
 
         const sortedRepliesToReturn = SortCommentNestedReplies(commentInRepliesData, addRepliesFieldTo)
+        console.log('xxxxx   im returning sortedRepliesToReturn');
+        
         return sortedRepliesToReturn
     }
     else {
@@ -115,6 +117,8 @@ export const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo
 
     let addedCommentRepliesToReturn = addRepliesFieldTo
     console.log('went to sortCommentNestedReplies');
+    console.log(';;;;;;;   At beggining addedCommentRepliesToReturn ' + JSON.stringify(addedCommentRepliesToReturn));
+
     if (Array.isArray(commentInRepliesData) && typeof addRepliesFieldTo === "object" &&
         !Array.isArray(addRepliesFieldTo) &&
         addRepliesFieldTo !== null) {
