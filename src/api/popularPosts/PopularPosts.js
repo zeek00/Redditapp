@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react'
-import { sortAbout } from '../../helpers/sortAbout';
 import { useSelector, useDispatch } from 'react-redux';
 import { addPopularPosts} from "../../store/postsSlice"
 import Post from '../../components/Posts/Post';

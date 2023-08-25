@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PostByIdExample from "./postByIdDataExample";
 import Comments from "../../components/comments/Comments";
@@ -13,6 +13,7 @@ const PostById = (props) => {
     const dispatch = useDispatch()
 
     const [sortedData, setSortedData] = useState([])
+
     const {id} = useParams()
   
     useEffect(() => {
@@ -39,11 +40,16 @@ const PostById = (props) => {
             //###### sort data with fetched posts below:
             const sortedReceivedPost = SortPostAndComments.SortReceivedPostAndComments(receivedDataByIdJson)
             //console.log('###### received sorted data to set ######## ' + JSON.stringify(sortedReceivedPost));
-
-            setSortedData(sortedReceivedPost)
-
-            dispatch(changeCompletedState({message: "to complete state"}))
-            
+            if (sortedReceivedPost[0].post.length !== 0){
+                 setSortedData(sortedReceivedPost)
+            }
+            else{
+                dispatch(changeErrorState({message: "to err state"}))
+            console.log('no posts for this id ' + JSON.stringify(receivedDataByIdJson));  
+      
+            }
+                dispatch(changeCompletedState({message: "to complete state"}))
+                    
           
         }
         //###### sort data with example below:
@@ -61,8 +67,9 @@ const PostById = (props) => {
         {!isLoading && sortedData.length >0 && <div><Post onPost={sortedData[0].post[0]}/>
         <Comments onComments={sortedData[0].comments} onMore={sortedData[0].moreComments}/>
     </div>}
-        {!isLoading && sortedData.length === 0 && <p> No post</p>}
-    </div>   
+        {!isLoading && sortedData.length === 0 &&  <p> No post</p>}
+   
+         </div>   
 }
 
 export default PostById
