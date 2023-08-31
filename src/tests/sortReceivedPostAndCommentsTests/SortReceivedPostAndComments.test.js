@@ -10,10 +10,10 @@ import {
 } from './SortReceivedPostAndCommentsData';
 import { validCommentDataExpectedResults } from './SortReceivedPostAndCommentsDataExpectedResults'
 
-import * as SortComments from '../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments';
+import * as SortComments from '../../helpers/sortReceivedPostAndComments/SortReceivedPostAndComments';
 
 import * as SortPosts from '../../helpers/SortReceivedPosts'
-import * as ValidCom from '../../helpers/sortReceivedPostAndCComments/ValidComment';
+import * as ValidCom from '../../helpers/sortReceivedPostAndComments/ValidComment';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 

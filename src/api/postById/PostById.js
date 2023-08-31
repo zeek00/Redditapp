@@ -6,7 +6,7 @@ import Post from "../../components/Posts/Post";
 import { useDispatch, useSelector } from "react-redux";
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
 //const {SortReceivedPostAndComments} = require("../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments") ;
-import * as SortPostAndComments from "../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments"
+import * as SortPostAndComments from "../../helpers/sortReceivedPostAndComments/SortReceivedPostAndComments"
 
 const PostById = (props) => {
     const isLoading = useSelector(state => state.loadingReducer.loading)

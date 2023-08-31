@@ -55,7 +55,7 @@ export const SortReceivedPosts =  (posts) => {
 }
     }
    
-//console.log('#####sorted data: #####' + JSON.stringify(sortedPostsList));
+console.log('#####sorted data: #####' + JSON.stringify(sortedPostsList));
 
     return sortedPostsList
 }
