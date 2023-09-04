@@ -8,12 +8,6 @@ import * as popular from '../../api/popularPosts/getPopularPosts'
 import * as selectors from '../../store/selectors'
 import { mount } from 'enzyme';
 
-const {By, Builder, Browser} = require('selenium-webdriver');
-const {suite} = require('selenium-webdriver/testing');
-const assert = require("assert");
-
-let driver;
-driver = await new Builder().forBrowser('chrome').build();
 
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
