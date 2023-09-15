@@ -3,19 +3,20 @@ import {screen, act} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import {renderWithProviders} from '../../../storeForTests/loadingAndPostReducersStore';
 import {changeLoadingState} from "../../../../store/loadingSlice";
+import 'core-js/stable/structured-clone';
 
 const PostComponent = require("../../../../components/Posts/Post")
 const popular = require("../../../../api/popularPosts/getPopularPosts")
 const popularPostsData = require("./PopularPostsData")
 
 describe("PopularPosts", () => {
-
     afterEach(() => {
-        jest.clearAllMocks();
-    });
+        jest.restoreAllMocks();
+      });
+    
 
 
-    it("getPopularPosts is loading data, then Loading option comes up", async () => {
+  it("getPopularPosts is loading data, then Loading option comes up", async () => {
 
         const receivePopularPostsSpy = jest.spyOn(popular, "getPopularPosts")
             .mockImplementationOnce((dispatch) => {
@@ -46,7 +47,6 @@ describe("PopularPosts", () => {
 
 
     })
-
 
 
 
@@ -114,12 +114,13 @@ it("received empty [] of posts to display", async () => {
 
 
 
-    it("received two valid posts to display", async () => {
+  it("received two valid posts to display", async () => {
 
         const receivePopularPostsSpy = jest.spyOn(popular, "getPopularPosts")
             .mockImplementationOnce(() => {
                 console.log('receivePopularPostsSpy called');
-                return popularPostsData.PopularPostsData.twoSortedValidPosts
+                const twoValidPosts = structuredClone(popularPostsData.PopularPostsData.twoSortedValidPosts)
+                return twoValidPosts
             })
 
         const PostsComponentSpy = jest.spyOn(PostComponent, "Post")

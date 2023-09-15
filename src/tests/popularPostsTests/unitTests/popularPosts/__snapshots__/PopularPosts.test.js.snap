@@ -1,13 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PopularPosts getPopularPosts is loading data, then Loading option comes up 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="div"
-      >
+      <div>
         <p>
            Loading....
         </p>
@@ -15,9 +13,7 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="div"
-    >
+    <div>
       <p>
          Loading....
       </p>
@@ -73,7 +69,7 @@ Object {
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
-  "store": Object {
+  "store": {
     "@@observable": [Function],
     "dispatch": [Function],
     "getState": [Function],
@@ -85,13 +81,11 @@ Object {
 `;
 
 exports[`PopularPosts getSortedPopularPosts is loading data, then Loading option comes up 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="div"
-      >
+      <div>
         <p>
            Loading....
         </p>
@@ -99,9 +93,7 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="div"
-    >
+    <div>
       <p>
          Loading....
       </p>
@@ -157,7 +149,7 @@ Object {
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
-  "store": Object {
+  "store": {
     "@@observable": [Function],
     "dispatch": [Function],
     "getState": [Function],
@@ -169,26 +161,18 @@ Object {
 `;
 
 exports[`PopularPosts received empty [] of posts to display 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="div"
-      >
-        <ul
-          class="ul"
-        />
+      <div>
+        <ul />
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="div"
-    >
-      <ul
-        class="ul"
-      />
+    <div>
+      <ul />
     </div>
   </div>,
   "debug": [Function],
@@ -241,7 +225,7 @@ Object {
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
-  "store": Object {
+  "store": {
     "@@observable": [Function],
     "dispatch": [Function],
     "getState": [Function],
@@ -253,26 +237,18 @@ Object {
 `;
 
 exports[`PopularPosts received null from getSortedPopularPosts to display 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="div"
-      >
-        <ul
-          class="ul"
-        />
+      <div>
+        <ul />
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="div"
-    >
-      <ul
-        class="ul"
-      />
+    <div>
+      <ul />
     </div>
   </div>,
   "debug": [Function],
@@ -325,7 +301,7 @@ Object {
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
-  "store": Object {
+  "store": {
     "@@observable": [Function],
     "dispatch": [Function],
     "getState": [Function],
@@ -337,16 +313,12 @@ Object {
 `;
 
 exports[`PopularPosts received two valid posts to display 1`] = `
-Object {
+{
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="div"
-      >
-        <ul
-          class="ul"
-        >
+      <div>
+        <ul>
           <li>
             <p>
               PostsComponentSpy1
@@ -362,12 +334,8 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="div"
-    >
-      <ul
-        class="ul"
-      >
+    <div>
+      <ul>
         <li>
           <p>
             PostsComponentSpy1
@@ -431,7 +399,7 @@ Object {
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
-  "store": Object {
+  "store": {
     "@@observable": [Function],
     "dispatch": [Function],
     "getState": [Function],

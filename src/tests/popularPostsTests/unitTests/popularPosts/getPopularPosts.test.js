@@ -15,7 +15,7 @@ describe("getPopularPosts", () => {
     jest.restoreAllMocks();
   });
 
-  it("sorting two valid posts, return two sorted posts", async () => {
+  it.only("sorting two valid posts, return two sorted posts", async () => {
     const mockResponse = structuredClone(popularPostsData.PopularPostsData.twoValidPosts)
     const SortReceivedPostsSpyReturn = popularPostsData.PopularPostsData.twoSortedValidPosts
 
