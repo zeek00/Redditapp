@@ -26,11 +26,6 @@ const loadingSlice = createSlice({
             state.completed = false
             state.error = true
         },
-        changeToInitialState(state,action){
-            state.loading = false
-            state.completed = false
-            state.error = false
-        },
     }
 })
 

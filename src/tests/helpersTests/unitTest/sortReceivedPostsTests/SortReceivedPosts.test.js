@@ -1,6 +1,6 @@
 import Enzyme, {shallow} from 'enzyme';
 import { EnzymeAdapter } from 'enzyme';
-import { SortReceivedPosts } from '../../helpers/SortReceivedPosts';
+import { SortReceivedPosts } from '../../../../helpers/SortReceivedPosts';
 import SortReceivedPostsData from './SortReceivedPostsData';
 import SortReceivedPostsExpectedResults from './SortReceivedPostsExpectedResults';
 

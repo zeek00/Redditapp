@@ -27,7 +27,7 @@
     "eject": "react-scripts eject"
   },
   "jest": {
-    "collectCoverage": true,
+
     "coverageReporters": [
       "html"
     ]

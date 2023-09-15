@@ -1,7 +1,7 @@
  import ValidComment from "./ValidComment"
  import SortReplies from "./SortNestedReplies"
  
-const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo) => {
+export const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo) => {
     console.log('went to sortCommentNestedReplies');
 
     for (let q = 0; q < commentInRepliesData.length; q++) {
@@ -38,4 +38,4 @@ const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo) => {
     }
 }
 
-export default SortCommentNestedReplies
+
