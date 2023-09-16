@@ -42,28 +42,28 @@ describe("getNestedObject", () => {
         expect(nestedObject).toMatchObject(toMatch)
     })
 
-    it("pass two correct and one incorrect args to the list of args, return null", ()=>{
+    it("pass two correct and one incorrect args to the list of args, return undefined", ()=>{
         const fullObject = nestedObjectsdata.validPost3Properties
         const nestedObject = nestedObjectFieldsValidation.getNestedObject(fullObject, ["data", "child", "child"])
-        const toMatch = null
+        const toMatch = undefined
 
         console.log("returned: " + JSON.stringify(nestedObject))
         expect(nestedObject).toBe(toMatch)
     })
 
-    it("pass null instead of an obj, return null", ()=>{
+    it("pass null instead of an obj, return undefined", ()=>{
         const fullObject = null
         const nestedObject = nestedObjectFieldsValidation.getNestedObject(fullObject, ["data", "child", "child"])
-        const toMatch = null
+        const toMatch = undefined
 
         console.log("returned: " + JSON.stringify(nestedObject))
         expect(nestedObject).toBe(toMatch)
     })
 
-    it("pass undefined instead of an obj, return null", ()=>{
+    it("pass undefined instead of an obj, return undefined", ()=>{
         const fullObject = undefined
         const nestedObject = nestedObjectFieldsValidation.getNestedObject(fullObject, ["data", "child", "child"])
-        const toMatch = null
+        const toMatch = undefined
 
         console.log("returned: " + JSON.stringify(nestedObject))
         expect(nestedObject).toBe(toMatch)

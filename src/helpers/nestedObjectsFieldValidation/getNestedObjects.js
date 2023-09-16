@@ -1,21 +1,35 @@
 export function getNestedObject(obj, argsList) {
-    return argsList.reduce((obj, currArg) => obj && obj[currArg], obj)
+    if(typeof obj ==="object" && !Array.isArray(obj) && obj !== null && obj !== undefined){
+    return argsList.reduce((obj, currArg) => {
+            return obj && obj[currArg]}, obj)
+}
+    else {
+        return undefined
+    }
 }
 
 
 
 export function getIsNestedObjectExists(obj, currField, ...restFields){
     console.log('getIsNestedObjectExists ' + JSON.stringify(obj) + "### curr Field: " + JSON.stringify(currField) + JSON.stringify(...restFields));
-    //validate if obj is obj, not null, list etc...
-    if (obj === undefined){
-        return false
-    }
-    else if ( (restFields.length === 0 || restFields === undefined) && obj.hasOwnProperty(currField)){
 
-        return true
+    if(typeof obj ==="object" && !Array.isArray(obj) && obj !== null){
+        if (obj === undefined){
+            return false
+        }
+        else if ( (restFields.length === 0 || restFields === undefined) && obj.hasOwnProperty(currField)){
+
+            return true
+        }
+        else {
+
+            return getIsNestedObjectExists(obj[currField], ...restFields)
+        }
     }
-    else {
-        const isNestedObject = getIsNestedObjectExists(obj[currField], ...restFields)
-        return isNestedObject
+    else{
+        console.log("expected to receive an obj but got: " + JSON.stringify((obj)))
+        return false
+
     }
+
 }

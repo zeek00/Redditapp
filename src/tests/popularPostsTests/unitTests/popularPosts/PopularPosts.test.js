@@ -3,6 +3,7 @@ import {screen, act} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import {renderWithProviders} from '../../../storeForTests/loadingAndPostReducersStore';
 import {changeLoadingState} from "../../../../store/loadingSlice";
+import 'core-js/stable/structured-clone';
 
 const PostComponent = require("../../../../components/Posts/Post")
 const popular = require("../../../../api/popularPosts/getPopularPosts")
@@ -10,8 +11,9 @@ const popularPostsData = require("./PopularPostsData")
 
 describe("PopularPosts", () => {
 
+
     afterEach(() => {
-        jest.clearAllMocks();
+        jest.restoreAllMocks();
     });
 
 
@@ -119,7 +121,7 @@ it("received empty [] of posts to display", async () => {
         const receivePopularPostsSpy = jest.spyOn(popular, "getPopularPosts")
             .mockImplementationOnce(() => {
                 console.log('receivePopularPostsSpy called');
-                return popularPostsData.PopularPostsData.twoSortedValidPosts
+                return structuredClone(popularPostsData.PopularPostsData.twoSortedValidPosts)
             })
 
         const PostsComponentSpy = jest.spyOn(PostComponent, "Post")

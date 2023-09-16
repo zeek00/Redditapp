@@ -1,39 +1,26 @@
 
-import ValidComment from "./ValidComment"
+import * as CommentNestedReplies from './SortCommentNestedReplies'
 
-//import SortCommentNestedReplies from "./SortCommentNestedReplies"
-import * as
 export const SortNestedReplies = (commentForRepliesData, addRepliesFieldTo) => {
-    //    console.log('sortNestedReplies called' + JSON.stringify(commentForReplies));
-    //function sortNestedReplies will keep changing 3 vars below
-    //  let commentForReplies = currentData
-    //  let commentForRepliesData = commentForReplies.data
-    // let addRepliesFieldTo = currentComment
-
-    //console.log('went to sortNestedReplies');
-
-
+    //console.log('sortNestedReplies called' + JSON.stringify(commentForRepliesData));
     if (typeof commentForRepliesData === "string") {
         // console.log('replies is a string');
+        return addRepliesFieldTo
     }
-    else if (typeof commentForRepliesData === "object") {
-        // console.log('replies is an obj');
-       
-        const  commentInRepliesData = commentForRepliesData.data.children
-        //call fnc
-        SortCommentNestedReplies(commentInRepliesData, addRepliesFieldTo)
+    else if (typeof commentForRepliesData === "object" &&
+        !Array.isArray(commentForRepliesData) &&
+        commentForRepliesData !== null) {
+        const commentInRepliesData = commentForRepliesData.data.children
+        const sortedRepliesToReturn = CommentNestedReplies.SortCommentNestedReplies(commentInRepliesData, addRepliesFieldTo)
 
+        return sortedRepliesToReturn
     }
     else {
         console.log('something went wrong, replies is not an obj or a str' + JSON.stringify(commentForRepliesData))
+        return addRepliesFieldTo
     }
 }
 
- 
-
-
-//import ValidComment from "./ValidComment"
-//import SortReplies from "./SortNestedReplies"
 
 
 

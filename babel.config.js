@@ -4,8 +4,7 @@ module.exports = {
       ['@babel/preset-react', {runtime: 'automatic'}],
      
     ],
-<<<<<<< Updated upstream
-=======
+
     env: {
       test: {
         plugins: [
@@ -19,5 +18,5 @@ module.exports = {
         ]
       }
   }
->>>>>>> Stashed changes
+
   };

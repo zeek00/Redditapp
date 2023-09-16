@@ -7,9 +7,12 @@ const config = {
     coverageReporters: [
       "html"
     ],
+    setupFiles: ['<rootDir>/setupJest.js'],
       moduleNameMapper: {
         '\\.(css|less)$': '<rootDir>/src/tests/styleJestMocks.js',
       }
   };
   
   module.exports = config;
+
+  //  "testEnvironment": "jsdom",   if taking it out then spyOn(global, fetch) works, but storeForTests receives an err
