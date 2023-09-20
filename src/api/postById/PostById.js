@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import PostByIdExample from "./postByIdDataExample";
-import SortReceivedPostAndComments from "../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments";
+import * as PostAndComments  from "../../helpers/sortReceivedPostAndComments/SortReceivedPostAndComments";
 import Comments from "../../components/comments/Comments";
-import Post from "../../components/Posts/Post";
+import * as Post from "../../components/Posts/Post";
 import { useDispatch, useSelector } from "react-redux";
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
 
@@ -36,7 +36,7 @@ const PostById = (props) => {
         }
         else {
             //###### sort data with fetched posts below:
-            const sortedReceivedPost = SortReceivedPostAndComments(receivedDataByIdJson)
+            const sortedReceivedPost = PostAndComments.SortReceivedPostAndComments(receivedDataByIdJson)
             //console.log('###### received sorted data to set ######## ' + JSON.stringify(sortedReceivedPost));
 
             setSortedData(sortedReceivedPost)
@@ -50,14 +50,15 @@ const PostById = (props) => {
         }
         catch(error){
             console.log('err occured in getDataById ' + JSON.stringify(error.message));
+            dispatch(changeCompletedState({message: "to complete state"}))
+
         }
-        dispatch(changeToInitialState({message: "to initial state"}))
     }
 
 
     return <div>
         {isLoading && <p>Loading...</p>}
-        {!isLoading && sortedData.length >0 && <div><Post onPost={sortedData[0].post[0]}/>
+        {!isLoading && sortedData.length >0 && <div><Post.Post onPost={sortedData[0].post[0]}/>
         <Comments onComments={sortedData[0].comments} onMore={sortedData[0].moreComments}/>
     </div>}
         {!isLoading && sortedData.length === 0 && <p> No post</p>}

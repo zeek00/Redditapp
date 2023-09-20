@@ -1,9 +1,10 @@
+
 import * as CommentNestedReplies from './SortCommentNestedReplies'
 
 export const SortNestedReplies = (commentForRepliesData, addRepliesFieldTo) => {
-    console.log('sortNestedReplies called' + JSON.stringify(commentForRepliesData));
+    //console.log('sortNestedReplies called' + JSON.stringify(commentForRepliesData));
     if (typeof commentForRepliesData === "string") {
-        console.log('replies is a string');
+        // console.log('replies is a string');
         return addRepliesFieldTo
     }
     else if (typeof commentForRepliesData === "object" &&
@@ -19,3 +20,7 @@ export const SortNestedReplies = (commentForRepliesData, addRepliesFieldTo) => {
         return addRepliesFieldTo
     }
 }
+
+
+
+

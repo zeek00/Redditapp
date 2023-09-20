@@ -1,5 +1,5 @@
 import {changeLoadingState,  changeCompletedState,changeErrorState} from '../../store/loadingSlice'
-import * as sortPosts from '../../helpers/SortReceivedPosts'
+import * as sortPosts from '../../helpers/sortReceivedPosts/SortReceivedPosts'
 import { getIsNestedObjectExists } from '../../helpers/nestedObjectsFieldValidation/getNestedObjects';
 
 export const getPopularPosts = async (dispatch) => {

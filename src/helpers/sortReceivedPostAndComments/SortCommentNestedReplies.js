@@ -1,6 +1,5 @@
 import * as ValComment from "./ValidComment";
-import * as nestedReplies  from "./SortNestedReplies";
-
+import * as NestedReplies from './SortNestedReplies'
 export const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo) => {
 
     let addedCommentRepliesToReturn = addRepliesFieldTo
@@ -27,7 +26,7 @@ export const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo
                     const newCommentForRepliesData = commentInRepliesData[q].data.replies
                     const newAddRepliesFieldTo = getValidComment.currentComment
 
-                    const sortedComment = nestedReplies.SortNestedReplies(newCommentForRepliesData, newAddRepliesFieldTo)
+                    const sortedComment = NestedReplies.SortNestedReplies(newCommentForRepliesData, newAddRepliesFieldTo)
                     addedCommentRepliesToReturn.replies.push(sortedComment)
 
                 }
@@ -57,5 +56,4 @@ export const SortCommentNestedReplies = (commentInRepliesData, addRepliesFieldTo
     return addRepliesFieldTo
 
 }
-
 

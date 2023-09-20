@@ -10,12 +10,12 @@ import {
 } from './SortReceivedPostAndCommentsData';
 import { validCommentDataExpectedResults } from './SortReceivedPostAndCommentsDataExpectedResults'
 
-import * as SortComments from '../../helpers/sortReceivedPostAndCComments/SortReceivedPostAndComments';
+import * as SortComments from '../../../../helpers/sortReceivedPostAndComments/SortReceivedPostAndComments';
 
-import * as SortPosts from '../../helpers/SortReceivedPosts'
-import * as ValidCom from '../../helpers/sortReceivedPostAndCComments/ValidComment';
-import * as NestedReplies from '../../helpers/sortReceivedPostAndCComments/SortNestedReplies'
-import * as CommentNestedReplies from '../../helpers/sortReceivedPostAndCComments/SortCommentNestedReplies'
+import * as SortPosts from '../../../../helpers/sortReceivedPosts/SortReceivedPosts'
+import * as ValidCom from '../../../../helpers/sortReceivedPostAndComments/ValidComment';
+import * as NestedReplies from '../../../../helpers/sortReceivedPostAndComments/SortNestedReplies'
+import * as CommentNestedReplies from '../../../../helpers/sortReceivedPostAndComments/SortCommentNestedReplies'
 import 'core-js/stable/structured-clone';
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 

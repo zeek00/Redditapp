@@ -1,10 +1,10 @@
 
 
 import { React, useEffect, useState } from 'react'
-import { SortReceivedPosts } from '../../helpers/SortReceivedPosts'; 
+import { SortReceivedPosts } from '../../helpers/sortReceivedPosts/SortReceivedPosts';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBestPosts } from '../../store/postsSlice';
-import Post from '../../components/Posts/Post';
+import * as Post from '../../components/Posts/Post';
 import bestData from './bestDataExample';
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
 
@@ -53,15 +53,16 @@ const BestPosts = () => {
       
     } catch (error) {
         console.log('This is the error: \n'+ error);
-    }
-    dispatch(changeToInitialState({message: "to err state"}))
+          dispatch(changeCompletedState({message: "to completed state"}))
+
+      }
     }
     return <div>
         {isLoading && <p>Loading...</p>}
         {!isLoading && <ul>
             {bestPosts.length > 0 ? bestPosts.map(onePost => {
               return <li key={onePost.id}>
-                <Post onPost={onePost}/>
+                <Post.Post onPost={onePost}/>
                 </li>
 }): console.log('no posts')
 } 

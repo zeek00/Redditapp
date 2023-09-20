@@ -1,9 +1,7 @@
-//import {SortReceivedPosts} from "../SortReceivedPosts";
 import * as ValComment from "./ValidComment";
-//const {ValidComment} = require("./ValidComment")
-//const {SortReceivedPosts} = require("../SortReceivedPosts")
-import * as SortPosts from "../SortReceivedPosts"
+import * as SortPosts from "../sortReceivedPosts/SortReceivedPosts"
 import * as NestedReplies from './SortNestedReplies'
+
 //when ever err occurs/ retry, if failed again dispatch to err state/ send to page 404
 
 //should return a message? easier for testing?

@@ -6,7 +6,6 @@ import popularDataExample from './popularDataExample';
 import styles from './PopularPosts.module.css'
 import * as sortPopularPosts from './getPopularPosts'
 import * as selectors from '../../store/selectors'
-import {getPopularPosts} from "./getPopularPosts";
 
 
 const PopularPosts = ()=>{
