@@ -16,6 +16,7 @@ const PopularPosts = ()=>{
 
     useEffect(()=>{
         if (popularPosts.length === 0){
+
             const runGetPopularPosts = async(dispatch) => {
 
                 const getSortedReceivedPosts = await sortPopularPosts.getPopularPosts(dispatch)
@@ -28,16 +29,17 @@ const PopularPosts = ()=>{
 
             runGetPopularPosts(dispatch)
         }
+
     }, [popularPosts])
 
     //add raw_json=1 param, otherwise <, >, and & will be replaced with &lt;, &gt;, and &amp;, respectively and wont load images.
 
 
 
+
     return <div className={styles.div}>
         {isLoading && <p> Loading....</p>}
         { !isLoading && <ul className={styles.ul}>
-
             {popularPosts.length > 0 ? popularPosts.map(onePost => {
                 return <li key={onePost.id}>
                     <Post.Post onPost={onePost}/>

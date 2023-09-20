@@ -1,18 +1,27 @@
 import React from 'react'
 import styles from './Header.module.css'
 import Search from '../../api/search/Search'
-import { Link } from 'react-router-dom'
-
+import Logo from '../Logo/Logo'
+import Button from '../Button/Button'
 
 export default function Header() {
-  return (
+  const btn = {
+    button_one: 'Best Post',
+  }
 
-      <div className={styles.container}>
-       <Search />
-      
+  return (
+    <div className={styles.container}>
+        <div className={styles.search}>
+            <Search />
+        </div>
+
+        <div className={styles.logo}>
+            <Logo />
+        </div>
+        
+        <div className={styles.button}>
+            <Button name={btn.button_one} />
+        </div>
     </div>
-    
-  
-    
   )
 }

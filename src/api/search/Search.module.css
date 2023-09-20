@@ -1,25 +1,175 @@
+
 .container{
     display: flex;
-    background-color: rgb(246,247,248);
-    border-radius: 2rem;
     justify-content: center;
-    align-items: center;
-    border: 1px solid rgb(152,150,147,0.2);
+    
+    
 }
+
 .container input{
     background-color: rgb(246,247,248);
     border-style: none;
+    color: #000;
+    width: 45%;
     border-top-right-radius: 2rem;
+    border: 1px solid #ccc;
     border-bottom-right-radius: 2rem;
-   
+    border-left: none;
+}
+
+.container input::placeholder{
+    font-size: 0.6rem;
+
 }
 
 .container input:focus{
     outline: none;
+    padding: 0.6rem;
+    background-color: rgb(246,247,248);
+    border-top-right-radius: 2rem;
+    border: 1px solid crimson;    
+    transform: scale(1.1);
+    transition: 0.5s ease-in;
+    border-bottom-right-radius: 2rem;
+    border-left: none;
 }
 
 .container .searchFont{
     padding: 0.6rem;
-    color: rgb(152,150,147);
-    font-size: 1.3rem;
+    color: #ccc;
+    font-size: 1rem;
+    background-color: rgb(246,247,248);
+    border-top-left-radius: 2rem;
+    border: 1px solid #ccc;    
+    border-bottom-left-radius: 2rem;
+    border-right: none;
+    
+}
+
+.container .focus{
+   
+    color: crimson;
+    transform: scale(1.1);
+    transition: 0.5s ease-in;
+    font-size: 1rem;
+    width: 10%;
+    padding-right: 1rem;
+    background-color: rgb(246,247,248);
+    border-top-left-radius: 2rem;
+    border: 1px solid crimson;    
+    border-bottom-left-radius: 2rem;
+    border-right: none;
+}
+
+
+
+@media (max-width: 414px) {
+    .container input:focus{
+        outline: none;
+        padding: 0.4rem;
+        background-color: rgb(246,247,248);
+        border-top-right-radius: 2rem;
+        border: 1px solid crimson;    
+        transform: scale(1.0);
+        transition: 0.5s ease-in;
+        border-bottom-right-radius: 2rem;
+        border-left: none;
+    }
+
+    .container .focus{
+        padding: 0.4rem;
+        color: crimson;
+        transform: scale(1.0);
+        transition: 0.5s ease-in;
+        font-size: 1rem;
+        width: 10%;
+        /* padding-right: 1rem; */
+        background-color: rgb(246,247,248);
+        border-top-left-radius: 2rem;
+        border: 1px solid crimson;    
+        border-bottom-left-radius: 2rem;
+        border-right: none;
+    }
+    
+
+}
+
+@media (min-width: 576px) {
+    .container input:focus{
+        outline: none;
+        padding: 0.4rem;
+        background-color: rgb(246,247,248);
+        border-top-right-radius: 2rem;
+        border: 1px solid crimson;    
+        transform: scale(1.0);
+        transition: 0.5s ease-in;
+        border-bottom-right-radius: 2rem;
+        border-left: none;
+    }
+
+    .container .focus{
+        padding: 0.4rem;
+        color: crimson;
+        transform: scale(1.0);
+        transition: 0.5s ease-in;
+        font-size: 1rem;
+        width: 10%;
+        /* padding-right: 1rem; */
+        background-color: rgb(246,247,248);
+        border-top-left-radius: 2rem;
+        border: 1px solid crimson;    
+        border-bottom-left-radius: 2rem;
+        border-right: none;
+    }
+}
+
+    /* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+  
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .container input:focus{
+        outline: none;
+        padding: 0.6rem;
+        background-color: rgb(246,247,248);
+        border-top-right-radius: 2rem;
+        border: 1px solid crimson;    
+        transform: scale(1.1);
+        transition: 0.5s ease-in;
+        border-bottom-right-radius: 2rem;
+        border-left: none;
+    }
+    
+.container .focus{
+    padding: 0.6rem;
+    color: crimson;
+    transform: scale(1.1);
+    transition: 0.5s ease-in;
+    font-size: 1rem;
+    width: 10%;
+    /* padding-right: 1rem; */
+    background-color: rgb(246,247,248);
+    border-top-left-radius: 2rem;
+    border: 1px solid crimson;    
+    border-bottom-left-radius: 2rem;
+    border-right: none;
+}
+
+
+    
+
+}
+
+/* X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+   
+    
+}
+
+/* XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+    
 }

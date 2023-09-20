@@ -12,7 +12,7 @@ const initialState = {
    
 }
 
-const postsSlice = createSlice({
+const options = {
     name: "postsData",
     initialState,
     reducers: {
@@ -35,7 +35,9 @@ const postsSlice = createSlice({
             state.currPostById = action.payload
         }
     }
-})
+}
+
+const postsSlice = createSlice(options)
 
 export const { addPopularPosts, addBestPosts,addCurrSearchValue, addCurrSearchPosts,addCurrPostId, addCurrPostById } = postsSlice.actions
 export default postsSlice.reducer

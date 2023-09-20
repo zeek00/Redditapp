@@ -1,6 +1,8 @@
 import DisplayComments from "./DisplayComments";
 
 //to finish
+import styles from './DisplayComments.module.css'
+
 const DisplayMoreComments = (props) => {
     const moreComments = props.onMore
 
@@ -10,7 +12,7 @@ const DisplayMoreComments = (props) => {
     }
 
     return <div>
-    <button onClick={clickedMoreCommentsHandler}>More Comments {moreComments.length}</button>:
+    <button className={styles.moreComments} onClick={clickedMoreCommentsHandler}>More Comments {moreComments.length}</button>:
 <DisplayComments />
 </div>
 

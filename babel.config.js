@@ -13,9 +13,9 @@ module.exports = {
       },
       development: {
         plugins: [
-         '@babel/plugin-transform-react-jsx-source',
-        '@babel/plugin-transform-react-jsx-self',
-           '@babel/plugin-transform-runtime',
+            '@babel/plugin-transform-react-jsx-source',
+            '@babel/plugin-transform-react-jsx-self',
+            '@babel/plugin-transform-runtime',
         ]
       }
   }

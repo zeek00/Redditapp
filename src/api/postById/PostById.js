@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 import PostByIdExample from "./postByIdDataExample";
 import * as PostAndComments  from "../../helpers/sortReceivedPostAndComments/SortReceivedPostAndComments";
 import Comments from "../../components/comments/Comments";

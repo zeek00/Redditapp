@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addBestPosts } from '../../store/postsSlice';
 import * as Post from '../../components/Posts/Post';
 import bestData from './bestDataExample';
+import styles from './BestPosts.module.css'
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
 
 const BestPosts = () => {
@@ -57,9 +58,9 @@ const BestPosts = () => {
 
       }
     }
-    return <div>
+    return <div className={styles.div}>
         {isLoading && <p>Loading...</p>}
-        {!isLoading && <ul>
+        {!isLoading && <ul className={styles.ul}>
             {bestPosts.length > 0 ? bestPosts.map(onePost => {
               return <li key={onePost.id}>
                 <Post.Post onPost={onePost}/>

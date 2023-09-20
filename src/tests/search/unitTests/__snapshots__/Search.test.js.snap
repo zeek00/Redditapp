@@ -5,48 +5,6 @@ exports[`Search user typed 0 characters, submitHandler called, useNavigator not 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
-        <form
-          aria-label="searchForm"
-        >
-          <svg
-            fill="none"
-            height="1em"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="11"
-              cy="11"
-              r="8"
-            />
-            <line
-              x1="21"
-              x2="16.65"
-              y1="21"
-              y2="16.65"
-            />
-          </svg>
-          <input
-            id="srch"
-            name="srch"
-            placeholder="Search-Posts"
-            type="search"
-          />
-        </form>
-        <p>
-          Please type in at least 5 characters
-        </p>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div>
       <form
         aria-label="searchForm"
       >
@@ -84,6 +42,44 @@ exports[`Search user typed 0 characters, submitHandler called, useNavigator not 
         Please type in at least 5 characters
       </p>
     </div>
+  </body>,
+  "container": <div>
+    <form
+      aria-label="searchForm"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="8"
+        />
+        <line
+          x1="21"
+          x2="16.65"
+          y1="21"
+          y2="16.65"
+        />
+      </svg>
+      <input
+        id="srch"
+        name="srch"
+        placeholder="Search-Posts"
+        type="search"
+      />
+    </form>
+    <p>
+      Please type in at least 5 characters
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -144,48 +140,6 @@ exports[`Search user typed 1 characters, submitHandler called, useNavigator not 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
-        <form
-          aria-label="searchForm"
-        >
-          <svg
-            fill="none"
-            height="1em"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="11"
-              cy="11"
-              r="8"
-            />
-            <line
-              x1="21"
-              x2="16.65"
-              y1="21"
-              y2="16.65"
-            />
-          </svg>
-          <input
-            id="srch"
-            name="srch"
-            placeholder="Search-Posts"
-            type="search"
-          />
-        </form>
-        <p>
-          Please type in at least 5 characters
-        </p>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div>
       <form
         aria-label="searchForm"
       >
@@ -223,6 +177,44 @@ exports[`Search user typed 1 characters, submitHandler called, useNavigator not 
         Please type in at least 5 characters
       </p>
     </div>
+  </body>,
+  "container": <div>
+    <form
+      aria-label="searchForm"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="8"
+        />
+        <line
+          x1="21"
+          x2="16.65"
+          y1="21"
+          y2="16.65"
+        />
+      </svg>
+      <input
+        id="srch"
+        name="srch"
+        placeholder="Search-Posts"
+        type="search"
+      />
+    </form>
+    <p>
+      Please type in at least 5 characters
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -278,50 +270,10 @@ exports[`Search user typed 1 characters, submitHandler called, useNavigator not 
 }
 `;
 
-
 exports[`Search user typed five characters, submitHandler and useNavigator were called with expected params 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
-    <div>
-      <div>
-        <form
-          aria-label="searchForm"
-        >
-          <svg
-            fill="none"
-            height="1em"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="11"
-              cy="11"
-              r="8"
-            />
-            <line
-              x1="21"
-              x2="16.65"
-              y1="21"
-              y2="16.65"
-            />
-          </svg>
-          <input
-            id="srch"
-            name="srch"
-            placeholder="Search-Posts"
-            type="search"
-          />
-        </form>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
     <div>
       <form
         aria-label="searchForm"
@@ -357,6 +309,41 @@ exports[`Search user typed five characters, submitHandler and useNavigator were 
         />
       </form>
     </div>
+  </body>,
+  "container": <div>
+    <form
+      aria-label="searchForm"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="8"
+        />
+        <line
+          x1="21"
+          x2="16.65"
+          y1="21"
+          y2="16.65"
+        />
+      </svg>
+      <input
+        id="srch"
+        name="srch"
+        placeholder="Search-Posts"
+        type="search"
+      />
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
