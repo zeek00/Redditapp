@@ -41,9 +41,10 @@ export default function Search() {
             id="srch"
             onFocus={searchFocus}
             onBlur={()=>setFocus(false)}
-            onChange={(e)=>{setSearchPhrase(e.target.value)}} placeholder='Search-Posts' />
+            onChange={(e)=>{setSearchPhrase(e.target.value)}}
+            placeholder='Search-Posts' />
       </form>
-      {isMessage && <p>Please type in at least 5 characters</p>}
+      {isMessage && <p className={styles.message}>Please type in at least 5 characters</p>}
     </Fragment>
 
        

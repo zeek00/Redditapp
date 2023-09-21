@@ -60,10 +60,12 @@
     border-bottom-left-radius: 2rem;
     border-right: none;
 }
+.message{
+    color: rgb(246,247,248);
+}
 
 
-
-@media (max-width: 414px) {
+@media (max-width: 576px) {
     .container input:focus{
         outline: none;
         padding: 0.4rem;
@@ -89,6 +91,9 @@
         border: 1px solid crimson;    
         border-bottom-left-radius: 2rem;
         border-right: none;
+    }
+    .message{
+        font-size: 0.5rem;
     }
     
 
@@ -121,11 +126,17 @@
         border-bottom-left-radius: 2rem;
         border-right: none;
     }
+    .message{
+        font-size: 0.625rem;
+    }
 }
 
     /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
 
+    .message{
+        font-size: 0.75rem;
+    }
   
 }
 
@@ -157,6 +168,10 @@
     border-bottom-left-radius: 2rem;
     border-right: none;
 }
+    .message{
+        font-size: 1rem;
+    }
+
 
 
     

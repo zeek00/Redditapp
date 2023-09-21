@@ -2,6 +2,7 @@ import React from "react";
 import {render, screen, fireEvent, act} from "@testing-library/react";
 import Search from '../../../api/search/Search'
 import userEvent from "@testing-library/user-event";
+import renderer from "react-test-renderer";
 
 const mockedNavigate = jest.fn().mockImplementation((calledWith) => {
         console.log("mockedNavigate was called " + JSON.stringify(calledWith))
@@ -74,5 +75,48 @@ describe("Search", () => {
         expect(searchResult).toMatchSnapshot()
 
     })
+
+    /*  it.only("user clicked on input to make it onFocus, FiSearch className changes to 'focus'", async () => {
+
+
+          const {container,  debug} = render(<Search/>)
+         // const fiSearch = screen.getByRole("FiSearch", {name: "formFiSearch"})
+
+
+         // const domTree = renderer.create(<Search />).toJSON()
+          //expect(domTree).toMatchSnapshot();
+
+          await act(async () => {
+              const input = screen.getByPlaceholderText('Search-Posts')
+              userEvent.click(input,undefined, {skipHover: true});
+
+          })
+  //console.log("is focus? " + JSON.stringify(container.getElementsByTagName("svg")))
+          //expect(screen.getByRole("FiSearch", {name: "formFiSearch"}))
+         expect(container.getElementsByClassName("focus").length).toBe(1)
+          expect(container.getElementsByClassName("srchFont").length).toBe(0)
+
+      })
+  /*
+      it("user , FiSearch className changes to 'focus'", async () => {
+
+
+          const {container, debug} = render(<Search/>)
+
+          await act(async () => {
+              const input = screen.getByPlaceholderText('Search-Posts')
+              userEvent.click(input,undefined, {skipHover: true});
+          })
+          await act(async () => {
+              const inputForm = screen.getByRole("form", {name: "searchForm"})
+              userEvent.click(inputForm, undefined, {skipHover: true})
+          })
+
+
+          expect(container.getElementsByClassName("searchFont").length).toBe(1)
+          expect(container.getElementsByClassName("focus").length).toBe(0)
+      })
+  */
+
 
 })
