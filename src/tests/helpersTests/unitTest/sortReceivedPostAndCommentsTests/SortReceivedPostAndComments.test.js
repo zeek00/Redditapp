@@ -7,8 +7,8 @@ import {
     sortCommentNestedRepliesTestsDataT1AndMore,
     SortReceivedPostAndCommentsData,
     extraSortReceivedPostAndCommentsData
-} from './SortReceivedPostAndCommentsData';
-import { validCommentDataExpectedResults } from './SortReceivedPostAndCommentsDataExpectedResults'
+} from '../../SortReceivedPostAndCommentsData';
+import { validCommentDataExpectedResults } from '../../SortReceivedPostAndCommentsDataExpectedResults'
 
 import * as SortComments from '../../../../helpers/sortReceivedPostAndComments/SortReceivedPostAndComments';
 

@@ -1,7 +1,7 @@
 import Enzyme from 'enzyme';
 import { EnzymeAdapter } from 'enzyme';
 import * as nestedObjectFieldsValidation from '../../../../helpers/nestedObjectsFieldValidation/getNestedObjects'
-import {nestedObjectsdata} from "./nestedObjectsTestData";
+import {nestedObjectsdata} from "../../nestedObjectsTestData";
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 describe("getIsNestedObjectExists", () => {

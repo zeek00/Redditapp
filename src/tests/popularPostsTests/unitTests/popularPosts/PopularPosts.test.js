@@ -7,7 +7,7 @@ import 'core-js/stable/structured-clone';
 
 const PostComponent = require("../../../../components/Posts/Post")
 const popular = require("../../../../api/popularPosts/getPopularPosts")
-const popularPostsData = require("./PopularPostsData")
+const popularPostsData = require("../../PopularPostsData")
 
 describe("PopularPosts", () => {
 

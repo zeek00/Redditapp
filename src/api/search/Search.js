@@ -4,6 +4,7 @@ import {FiSearch} from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom'
 
 
+
 export default function Search() {
   const [focus, setFocus] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState("")

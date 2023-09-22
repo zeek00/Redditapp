@@ -2,7 +2,6 @@ import React from "react";
 import {render, screen, fireEvent, act} from "@testing-library/react";
 import Search from '../../../api/search/Search'
 import userEvent from "@testing-library/user-event";
-import renderer from "react-test-renderer";
 
 const mockedNavigate = jest.fn().mockImplementation((calledWith) => {
         console.log("mockedNavigate was called " + JSON.stringify(calledWith))
@@ -84,7 +83,7 @@ describe("Search", () => {
    it("user clicked on input to make it onFocus, FiSearch className changes to 'focus'", async () => {
 
 
-          const {container,  debug} = render(<Search/>)
+          const searchResult = render(<Search/>)
 
        const searchForm = screen.getByRole("form", {name: "searchForm"})
 
@@ -99,7 +98,7 @@ describe("Search", () => {
       it("user , FiSearch className changes to 'focus'", async () => {
 
 
-          const {container, debug} = render(<Search/>)
+          const searchResult = render(<Search/>)
           const searchForm = screen.getByRole("form", {name: "searchForm"})
 
           await act(async () => {

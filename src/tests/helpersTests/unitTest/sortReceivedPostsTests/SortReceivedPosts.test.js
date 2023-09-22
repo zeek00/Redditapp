@@ -1,8 +1,8 @@
 import Enzyme, {shallow} from 'enzyme';
 import { EnzymeAdapter } from 'enzyme';
 import { SortReceivedPosts } from '../../../../helpers/sortReceivedPosts/SortReceivedPosts';
-import SortReceivedPostsData from './SortReceivedPostsData';
-import SortReceivedPostsExpectedResults from './SortReceivedPostsExpectedResults';
+import SortReceivedPostsData from '../../SortReceivedPostsData';
+import SortReceivedPostsExpectedResults from '../../SortReceivedPostsExpectedResults';
 
 Enzyme.configure({adapter: new EnzymeAdapter()});
 

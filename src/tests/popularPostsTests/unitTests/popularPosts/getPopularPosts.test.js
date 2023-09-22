@@ -1,7 +1,7 @@
 import Enzyme from 'enzyme';
 import { EnzymeAdapter } from 'enzyme';
 //import 'cross-fetch/polyfill'
-import * as popularPostsData from './PopularPostsData'
+import * as popularPostsData from '../../PopularPostsData'
 import * as sortPosts from '../../../../helpers/sortReceivedPosts/SortReceivedPosts'
 import * as popular from '../../../../api/popularPosts/getPopularPosts'
 import * as nestedObjectFieldsValidation from '../../../../helpers/nestedObjectsFieldValidation/getNestedObjects';

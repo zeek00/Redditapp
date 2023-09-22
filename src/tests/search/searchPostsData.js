@@ -18,7 +18,14 @@ export const searchData = {
                         name: "1",
                         ups: "1",
                         downs: "1",
-                        imageUrl: "1",
+                        preview: {
+                            images: [
+                                    {source: {
+                                        url: "1"
+                                    }
+                                    }
+                            ]
+                        },
                         post_hint: "1",
                         subreddit_subscribers: "1",
                         id: "1",
@@ -48,7 +55,15 @@ export const searchData = {
                         name: "1",
                         ups: "1",
                         downs: "1",
-                        imageUrl: "1",
+                            preview: {
+                                images: [
+                                    {
+                                        source: {
+                                            url: "1"
+                                        }
+                                    }
+                                ]
+                        },
                         post_hint: "1",
                         subreddit_subscribers: "1",
                         id: "1",
@@ -66,7 +81,15 @@ export const searchData = {
                         name: "2",
                         ups: "2",
                         downs: "2",
-                        imageUrl: "2",
+                            preview: {
+                                images: [
+                                    {
+                                        source: {
+                                            url: "2"
+                                        }
+                                    }
+                                ]
+                        },
                         post_hint: "2",
                         subreddit_subscribers: "2",
                         id: "2",

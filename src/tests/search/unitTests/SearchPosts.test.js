@@ -8,7 +8,7 @@ import * as SearchPosts from '../../../api/search/SearchPosts'
 import * as getSearchData from '../../../api/search/getSortedSearchedData'
 import * as PostComponent from '../../../components/Posts/Post'
 import Router from "react-router-dom";
-import * as searchData from './searchPostsData'
+import * as searchData from '../searchPostsData'
 
 
 jest.mock("react-router-dom", () => ({
