@@ -1,19 +1,16 @@
-
-
-const config = {
-    verbose: true,
+module.exports = {
+    "verbose": true,
     "testEnvironment": "jsdom",
-    collectCoverage: true,
-    coverageReporters: [
-      "html"
+    "collectCoverage": true,
+    "coverageReporters": [
+        "html"
     ],
-    setupFiles: ['<rootDir>/setupJest.js'],
-      moduleNameMapper: {
-        '\\.(css|less)$': '<rootDir>/src/tests/styleJestMocks.js',
-      },
-    setupFilesAfterEnv: ['<rootDir>/src/setupTests.js']
-  };
-  
-  module.exports = config;
+    "setupFiles": ["<rootDir>/setupJest.js"],
+    "moduleNameMapper": {
 
-  //  "testEnvironment": "jsdom",   if taking it out then spyOn(global, fetch) works, but storeForTests receives an err
+        "\\.css$": "identity-obj-proxy",
+        "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"]
+}
+

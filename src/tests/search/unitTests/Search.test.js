@@ -33,6 +33,8 @@ describe("Search", () => {
             userEvent.type(input, "mango{enter}");
         })
 
+        const searchForm = screen.getByRole("form", {name: "searchForm"})
+        expect(searchForm.nextElementSibling).toBe(null)
         expect(submitHandlerMock).toHaveBeenCalledTimes(1);
         expect(mockedNavigate).toHaveBeenCalledTimes(1);
         expect(mockedNavigate).toHaveBeenNthCalledWith(1, `/search/mango`);
@@ -51,6 +53,9 @@ describe("Search", () => {
             const input = screen.getByPlaceholderText('Search-Posts')
             userEvent.type(input, "{enter}");
         })
+        const searchForm = screen.getByRole("form", {name: "searchForm"})
+        console.dir(searchForm)
+
 
         expect(submitHandlerMock).toHaveBeenCalledTimes(1);
         expect(mockedNavigate).toHaveBeenCalledTimes(0);
@@ -76,32 +81,26 @@ describe("Search", () => {
 
     })
 
-    /*  it.only("user clicked on input to make it onFocus, FiSearch className changes to 'focus'", async () => {
+   it("user clicked on input to make it onFocus, FiSearch className changes to 'focus'", async () => {
 
 
           const {container,  debug} = render(<Search/>)
-         // const fiSearch = screen.getByRole("FiSearch", {name: "formFiSearch"})
 
-
-         // const domTree = renderer.create(<Search />).toJSON()
-          //expect(domTree).toMatchSnapshot();
+       const searchForm = screen.getByRole("form", {name: "searchForm"})
 
           await act(async () => {
               const input = screen.getByPlaceholderText('Search-Posts')
               userEvent.click(input,undefined, {skipHover: true});
 
           })
-  //console.log("is focus? " + JSON.stringify(container.getElementsByTagName("svg")))
-          //expect(screen.getByRole("FiSearch", {name: "formFiSearch"}))
-         expect(container.getElementsByClassName("focus").length).toBe(1)
-          expect(container.getElementsByClassName("srchFont").length).toBe(0)
-
+        expect(searchForm.firstChild).toHaveClass("focus")
       })
-  /*
+
       it("user , FiSearch className changes to 'focus'", async () => {
 
 
           const {container, debug} = render(<Search/>)
+          const searchForm = screen.getByRole("form", {name: "searchForm"})
 
           await act(async () => {
               const input = screen.getByPlaceholderText('Search-Posts')
@@ -112,11 +111,9 @@ describe("Search", () => {
               userEvent.click(inputForm, undefined, {skipHover: true})
           })
 
+          expect(searchForm.firstChild).toHaveClass("searchFont")
+    })
 
-          expect(container.getElementsByClassName("searchFont").length).toBe(1)
-          expect(container.getElementsByClassName("focus").length).toBe(0)
-      })
-  */
 
 
 })

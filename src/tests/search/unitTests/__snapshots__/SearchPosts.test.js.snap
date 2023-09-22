@@ -6,13 +6,21 @@ exports[`SearchPosts SearchPosts getSortedSearchedData is an {},PostsComponentSp
   "baseElement": <body>
     <div>
       <div>
-        <ul />
+        <ul>
+          <p>
+            Searched posts Empty
+          </p>
+        </ul>
       </div>
     </div>
   </body>,
   "container": <div>
     <div>
-      <ul />
+      <ul>
+        <p>
+          Searched posts Empty
+        </p>
+      </ul>
     </div>
   </div>,
   "debug": [Function],
@@ -75,7 +83,6 @@ exports[`SearchPosts SearchPosts getSortedSearchedData is an {},PostsComponentSp
   "unmount": [Function],
 }
 `;
-
 
 exports[`SearchPosts getSortedSearchedData is loading data, then Loading option comes up 1`] = `
 {

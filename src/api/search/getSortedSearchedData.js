@@ -8,12 +8,13 @@ import {addCurrSearchPosts, addCurrSearchValue} from "../../store/postsSlice";
 import * as ReceivedPosts from '../../helpers/sortReceivedPosts/SortReceivedPosts'
 export const getSortedSearchedData = async (dispatch, value) => {
     try {
+        const toReturn = []
 
 
         //undefined or null
         if (value === undefined || value === null){
             console.log("value in getSortedSearchedData is undefined or null")
-            return []
+            return toReturn
         }
         else {
             if (value.length >= 5){
@@ -40,11 +41,12 @@ export const getSortedSearchedData = async (dispatch, value) => {
 
                 dispatch(addCurrSearchPosts(sortedData))
                 dispatch(addCurrSearchValue(value))
+                console.log("sortedData is: " + JSON.stringify(sortedData))
                 return sortedData
             }
             else {
                 console.log("value in getSortedSearchedData is less then 5, need at least 5 characters to be able to search, was given: " + value.length)
-                return []
+                return toReturn
             }
         }
 

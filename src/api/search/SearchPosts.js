@@ -16,19 +16,22 @@ const SearchPosts = (props) => {
     console.log('search value: ' + JSON.stringify(value));
     
     useEffect(() => { 
-        if(savedSearchedValue !== value) {
-            const receivedSearchedData = SortedSearchData.getSortedSearchedData(dispatch,value)
-            if (Array.isArray(receivedSearchedData)){
-                if (receivedSearchedData.length !== 0){
-                    setSearchedPosts(receivedSearchedData)
-                }
-                else {
-                    console.log("receivedSearchedData is an empty array")
+
+            const getSearchedData = async () => {
+                const receivedSearchedData = await SortedSearchData.getSortedSearchedData(dispatch, value)
+                console.log("receivedSearchedData " + JSON.stringify(receivedSearchedData))
+                if (Array.isArray(receivedSearchedData)) {
+                    if (receivedSearchedData.length !== 0) {
+                        setSearchedPosts(receivedSearchedData)
+                    } else {
+                        console.log("receivedSearchedData is an empty array")
+                    }
+                } else {
+                    console.log("receivedSearchedData is not an array")
                 }
             }
-            else {
-                console.log("receivedSearchedData is not an array")
-            }
+            if(savedSearchedValue !== value) {
+                getSearchedData()
         }
     },[value])
     
@@ -42,7 +45,7 @@ return <div>
             return <li key={onePost.id}>
                 <Post.Post onPost={onePost}/>
             </li>
-        }): console.log('no searched posts')
+        }): <p>Searched posts Empty</p>
         
     }
     </ul>}
