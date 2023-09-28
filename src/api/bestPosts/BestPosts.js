@@ -1,11 +1,10 @@
 
 
 import { React, useEffect, useState } from 'react'
-import { SortReceivedPosts } from '../../helpers/SortReceivedPosts'; 
+import { SortReceivedPosts } from '../../helpers/sortReceivedPosts/SortReceivedPosts';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBestPosts } from '../../store/postsSlice';
-import Post from '../../components/Posts/Post';
-import bestData from './bestDataExample';
+import * as Post from '../../components/Posts/Post';
 import styles from './BestPosts.module.css'
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
 
@@ -54,20 +53,26 @@ const BestPosts = () => {
       
     } catch (error) {
         console.log('This is the error: \n'+ error);
+          dispatch(changeCompletedState({message: "to completed state"}))
+
+      }
     }
-    dispatch(changeToInitialState({message: "to err state"}))
-    }
+
+    
     return <div className={styles.div}>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <p className={styles.isLoading}> Loading... </p>}
         {!isLoading && <ul className={styles.ul}>
             {bestPosts.length > 0 ? bestPosts.map(onePost => {
-              return <li key={onePost.id}>
-                <Post onPost={onePost}/>
+                return <li key={onePost.id}>
+                <Post.Post onPost={onePost}/>
                 </li>
-}): console.log('no posts')
+            }): console.log('no posts')
 } 
         </ul>  }
     </div>
 };
+
+
+
 
 export default BestPosts

@@ -1,26 +1,34 @@
 .container{
     margin: 4.5rem auto;
     height: 85vh;
-    display: flex;
-
+    
 }
 
 .info{
     font-size: 0.7rem;
     margin: 0 auto;
-    
+    /* border: 2px dotted dodgerblue; */
+    display: flex;
+    flex-direction: column;
 }
+
 .info .h1 {
     font-size: 2rem;
+    /* border:  2px solid white; */
+    align-items: center;
+    
 }
+
 .info .p {
     font-size: 1.2rem;
+    /* border: 2px solid chartreuse; */
 }
 
 .info .h1, .p{
+    text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 0 6rem;
+    justify-items: center;
     color: #fff;
     /* border: 1px solid blue; */
 }
@@ -28,12 +36,11 @@
 .svg{
     display: flex;
     margin: 0 auto;
+    justify-content: center;
     align-items: center;
     width: 70%;
     /* border: 1px solid orange; */
-    padding: 1rem;
-
-    
+    padding: 1rem;  
 }
 
 
@@ -41,9 +48,17 @@ span{
     color: #fff;
     font-size: 1rem;
 }
+
+.group{
+    /* border: 2px solid pink; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .first{
     /* margin-left: 6rem; */
-    padding: 0 6rem;
+    /* padding: 0 6rem; */
     font-size: 0.9rem;
     width: fit-content;
     background: #000;
@@ -84,17 +99,30 @@ span{
    
 }
 
-@media (max-width: 414px) {
+@media (max-width: 400px){
     .container{
+        display: flex;
         flex-direction: column;
-        align-items: center;
+        
     }
+    .info{        
+        /* flex-direction: column; */
+    }
+    .btn, .first{
+        padding: 0.6rem;
+    }
+    .svg img{
+        width: 90%;
+        
+    }
+}
 
+
+@media (min-width: 416px) {
     .info{
         font-size: 0.7rem;
-        width: 100%;
-        margin: 2rem auto;
-        
+        width: 57%;
+
     }
     .info .h1 {
         font-size: 2rem;
@@ -104,8 +132,8 @@ span{
     }
 
     .info .h1, .p{
-        display: flex;
-        flex-direction: column;
+        /* display: flex;
+        flex-direction: column; */
         /* padding-left: 6rem; */
         color: #fff;
         /* border: 1px solid blue; */
@@ -115,14 +143,15 @@ span{
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 50%;
         /* border: 1px solid orange; */
         padding: 1rem;
 
-        
+
     }
     .svg img{
         width: 90%;
-        
+
     }
 
     span{
@@ -130,7 +159,7 @@ span{
         font-size: 1rem;
     }
     .first{
-        /* margin: 0 6rem; */
+        /* margin-left: 6rem; */
         padding: 0.5rem;
         font-size: 0.9rem;
         width: fit-content;
@@ -147,7 +176,7 @@ span{
         border-radius: 10px;
         color: #000;
         background-color: #fff;
-       
+
     }
     .btn{
         display: inline-flex;
@@ -160,24 +189,26 @@ span{
         text-decoration: none;
         border-radius: 2px;
         cursor: pointer;
-        
+
     }
-    
+
     .btn:hover{
         transform: scale(1);
         transition: 0.3s ease-in;
         border-radius: 10px;
         color: #000;
         background-color: #fff;
-       
-    }
 
-    .group{
-        padding: 0 6rem;
     }
 }
 
+
 @media (min-width: 576px) {
+    .container{
+        display: flex;
+        
+        
+    }
     .info{
         font-size: 0.7rem;
         width: 50%;
@@ -192,9 +223,9 @@ span{
     }
 
     .info .h1, .p{
-        display: flex;
-        flex-direction: column;
-        padding-left: 6rem;
+        /* display: flex;
+        flex-direction: column; */
+        /* padding-left: 6rem; */
         color: #fff;
         /* border: 1px solid blue; */
     }
@@ -219,7 +250,7 @@ span{
         font-size: 1rem;
     }
     .first{
-        margin-left: 6rem;
+        /* margin-left: 6rem; */
         padding: 0.5rem;
         font-size: 0.9rem;
         width: fit-content;
@@ -263,7 +294,36 @@ span{
 }
 
     /* Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
+@media (min-width: 600px) {
+    .container{
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .info{
+        font-size: 0.7rem;
+        width: 50%;
+        margin: 7rem auto;
+        /* border: 2px solid grey; */
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
+        
+    }
+    .svg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        /* border: 1px solid orange; */
+        padding: 0 3rem;
+
+        
+    }
+
+    
 
   
 }
@@ -280,19 +340,24 @@ span{
         font-size: 0.7rem;
         width: 50%;
         margin: 7rem auto;
+        /* border: 2px solid grey; */
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
         
     }
     .info .h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     .info .p {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+       
     }
 
     .info .h1, .p{
-        display: flex;
-        flex-direction: column;
-        padding: 0 6rem;
+        /* display: flex;
+        flex-direction: column; */
         color: #fff;
         /* border: 1px solid blue; */
     }
@@ -316,8 +381,13 @@ span{
         color: #fff;
         font-size: 1rem;
     }
+    .group{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid saddlebrown; */
+    }
     .first{
-        margin-left: 6rem;
         padding: 0.5rem;
         font-size: 0.9rem;
         width: fit-content;
@@ -337,7 +407,6 @@ span{
        
     }
     .btn{
-        display: inline-flex;
         padding: 0.5rem;
         font-size: 0.9rem;
         width: fit-content;

@@ -1,12 +1,11 @@
 import React from 'react'
 import styles from './Button.module.css'
-import { Link } from 'react-router-dom';
-import PostsRoutes from '../../app/routes';
+import { NavLink } from 'react-router-dom';
 
-export default function Button(props) {
+export default function Button({to, name}) {
   return (
-    <Link to={PostsRoutes.bestPostsRoute()} className={styles.button} >
-        {props.name}
-    </Link>
+    <NavLink data-testid="button-1" to={to} className={styles.button} >
+        {name}
+    </NavLink>
   );
 }

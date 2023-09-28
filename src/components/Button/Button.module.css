@@ -8,6 +8,7 @@
     border-radius: 2px;
     text-decoration: none;
     cursor: pointer;
+    margin-left: 2rem;
 }
 
 .button:hover{
@@ -51,6 +52,9 @@
         cursor: pointer;
         color: #fff;
         
+    }
+    .button.active{
+        background-color: crimson;
     }
     
     .button:hover{

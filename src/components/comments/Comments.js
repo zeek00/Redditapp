@@ -22,7 +22,7 @@ const Comments = (props) => {
                     return <li className={styles.firstli} key={oneReply.id} >
                         <DisplayComments onComment={oneReply} />
 
-                        {commentReplies.length > 0 && displayRepliesHandler(oneReply)}
+                        {oneReply.replies.length > 0 && displayRepliesHandler(oneReply)}
                     </li>
                 })}
                 {oneComment.moreReplies.length > 0 && <DisplayMoreComments onMore={oneComment.moreReplies} />}

@@ -1,16 +1,13 @@
 import {React, useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import Post from '../../components/Posts/Post'
-import { SortReceivedPosts } from '../../helpers/SortReceivedPosts'
+import * as Post from '../../components/Posts/Post'
 import { useDispatch, useSelector } from 'react-redux'
-import { addCurrSearchValue, addCurrSearchPosts } from '../../store/postsSlice'
-import searchData from './searchDataExample'
-import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
-
+import * as SortedSearchData from './getSortedSearchedData'
+import * as selectors from '../../store/selectors'
 const SearchPosts = (props) => {
-    const isLoading = useSelector(state => state.loadingReducer.loading)
-    const savedSearchedValue = useSelector(state => state.postsReducer.currSearchValue)
-    const savedSearchedPosts = useSelector(state => state.postsReducer.currSearchPosts)
+    const isLoading = useSelector(selectors.loadingSelector)
+    const savedSearchedValue = useSelector(selectors.savedSearchedValue)
+    const savedSearchedPosts = useSelector(selectors.savedSearchedPosts)
 
     const {value} = useParams()
     const [searchedPosts, setSearchedPosts] = useState(savedSearchedPosts)
@@ -19,41 +16,26 @@ const SearchPosts = (props) => {
     console.log('search value: ' + JSON.stringify(value));
     
     useEffect(() => { 
-        if(savedSearchedValue !== value) {
-            getSortedSearchedData(value)
-        }      
+
+            const getSearchedData = async () => {
+                const receivedSearchedData = await SortedSearchData.getSortedSearchedData(dispatch, value)
+                console.log("receivedSearchedData " + JSON.stringify(receivedSearchedData))
+                if (Array.isArray(receivedSearchedData)) {
+                    if (receivedSearchedData.length !== 0) {
+                        setSearchedPosts(receivedSearchedData)
+                    } else {
+                        console.log("receivedSearchedData is an empty array")
+                    }
+                } else {
+                    console.log("receivedSearchedData is not an array")
+                }
+            }
+            if(savedSearchedValue !== value) {
+                getSearchedData()
+        }
     },[value])
     
-    const getSortedSearchedData = async (val) => {
-        try {
-            const url = `https://www.reddit.com/search.json?q=${val}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
-        
-        dispatch(changeLoadingState({message: "to loading"}))
 
-        const response = await fetch(url)
-        const searchedData = await response.json()
-        
-        //#########sorting with fetched data
-        const sortedData = SortReceivedPosts(searchedData.data.children)
-
-        //#########sorting with example data
-        //const sortedData = SortReceivedPosts(searchData.data.children)
-
-        //console.log('sorted data: ' + JSON.stringify(sortedData));
-        setSearchedPosts(sortedData)
-        
-        dispatch(changeCompletedState({message: "to complete"}))
-
-        dispatch(addCurrSearchPosts(sortedData))
-        dispatch(addCurrSearchValue(value))
-        }
-        catch(err){
-        console.log('err occured: ' + JSON.stringify(err.message));
-        dispatch(changeErrorState({message: "to err"}))
-
-        }
-        dispatch(changeToInitialState({message: "to initial"}))
-    }
     
 
 return <div>
@@ -61,9 +43,9 @@ return <div>
     {!isLoading && <ul>
         {searchedPosts.length > 0? searchedPosts.map(onePost => {
             return <li key={onePost.id}>
-                <Post onPost={onePost}/>
+                <Post.Post onPost={onePost}/>
             </li>
-        }): console.log('no searched posts')
+        }): <p>Searched posts Empty</p>
         
     }
     </ul>}
