@@ -1,12 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import postsSliceReducer from "./postsSlice"
 import loadingSliceReducer from "./loadingSlice";
 
+
+const rootReducer = combineReducers({
+    postsReducer : postsSliceReducer,
+    loadingReducer: loadingSliceReducer
+  })
+
 const store = configureStore({
-    reducer: {
-        postsReducer : postsSliceReducer,
-        loadingReducer: loadingSliceReducer
-    },
+    reducer:rootReducer
 });
 
 export default store

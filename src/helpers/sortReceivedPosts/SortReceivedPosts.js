@@ -10,7 +10,7 @@ export const SortReceivedPosts =  (posts) => {
 
         const post = posts[i].data
         const postKeys = Object.keys(post)
-       //console.log('Post keys: ' + JSON.stringify(postKeys));
+       console.log('Post keys: ' + JSON.stringify(postKeys));
         
         if (
         postKeys.includes("subreddit_name_prefixed") &&
