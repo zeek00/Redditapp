@@ -1,4 +1,4 @@
-### REDdit APP
+## REDdit APP
 
 \* created using `create-react-app`
 ![Sample App Image](./src/assets/Screenshotredditapp.jpg)and the `Reddit API` 
@@ -7,11 +7,11 @@
 
 - Mobile or Desktop devices
 
-### Production Deployed using surge
+## Production Deployed using surge
 
 - Open [http://redditapp.surge.sh](http://redditapp.surge.sh)
 
-### Development
+## Development
 
 - In the project directory, you can run:
 
