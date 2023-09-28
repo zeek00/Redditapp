@@ -1,10 +1,8 @@
 import { React, useEffect, useState } from 'react'
 import { SortReceivedPosts } from '../../helpers/SortReceivedPosts';
-import { sortAbout } from '../../helpers/sortAbout';
 import { useSelector, useDispatch } from 'react-redux';
 import { addPopularPosts} from "../../store/postsSlice"
 import Post from '../../components/Posts/Post';
-import popularDataExample from './popularDataExample';
 import styles from './PopularPosts.module.css'
 import {changeLoadingState,  changeCompletedState,changeErrorState, changeToInitialState} from '../../store/loadingSlice' 
 
@@ -60,19 +58,27 @@ const PopularPosts = ()=>{
     }
     dispatch(changeToInitialState({message: "back to initial state"}))
 }
-    return <div className={styles.div}>
-        {isLoading && <p> Loading....</p>}
-        { !isLoading && <ul className={styles.ul}>
-            
-            {popularPosts.length > 0 ? popularPosts.map(onePost => {
-              return <li key={onePost.id}>
-                <Post onPost={onePost}/>
-                </li>
-           
-}): console.log('no posts')
-} 
-        </ul>  }
-    </div>
+    return( 
+        <div className={styles.div}>
+            {isLoading && <p> Loading....</p>}
+            { 
+                !isLoading && 
+                    <ul className={styles.ul}>
+                        {popularPosts.length > 0 
+                            ? 
+                                popularPosts.map(onePost => {
+                                    return(
+                                        <li key={onePost.id}>
+                                            <Post onPost={onePost}/>
+                                        </li>
+                                    )
+                                })
+                            : console.log('no posts')
+                        } 
+                    </ul>  
+            }
+        </div>
+    );
     
 
 };

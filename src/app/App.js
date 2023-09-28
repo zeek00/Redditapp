@@ -1,4 +1,5 @@
-import './App.css';
+// import './App.css';
+import React from 'react';
 import PopularPosts from '../api/popularPosts/PopularPosts';
 import {
   BrowserRouter as Router,

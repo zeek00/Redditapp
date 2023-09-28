@@ -7,7 +7,7 @@ const initialState = {
 
 }
 
-const loadingSlice = createSlice({
+const loadingSlice = createSlice({ 
     name: "loadingState",
     initialState,
     reducers: {

@@ -57,8 +57,10 @@ const BestPosts = () => {
     }
     dispatch(changeToInitialState({message: "to err state"}))
     }
+
+    
     return <div className={styles.div}>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <p className={styles.isLoading}>Loading...</p>}
         {!isLoading && <ul className={styles.ul}>
             {bestPosts.length > 0 ? bestPosts.map(onePost => {
               return <li key={onePost.id}>
@@ -69,5 +71,8 @@ const BestPosts = () => {
         </ul>  }
     </div>
 };
+
+
+
 
 export default BestPosts
