@@ -6,6 +6,7 @@ import {
 } from "../../store/loadingSlice";
 import {addCurrSearchPosts, addCurrSearchValue} from "../../store/postsSlice";
 import * as ReceivedPosts from '../../helpers/sortReceivedPosts/SortReceivedPosts'
+import searchData from "./searchDataExample"
 export const getSortedSearchedData = async (dispatch, value) => {
     try {
         const toReturn = []
@@ -33,7 +34,7 @@ export const getSortedSearchedData = async (dispatch, value) => {
                 const sortedData = ReceivedPosts.SortReceivedPosts(searchedData.data.children)
 
                 //#########sorting with example data
-                //const sortedData = SortReceivedPosts(searchData.data.children)
+             //  const sortedData = ReceivedPosts.SortReceivedPosts(searchData.data.children)
 
 
 

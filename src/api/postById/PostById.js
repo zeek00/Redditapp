@@ -56,7 +56,7 @@ const PostById = (props) => {
     }
 
 
-    return <div>
+    return <div id="postId">
         {isLoading && <p>Loading...</p>}
         {!isLoading && sortedData.length >0 && <div><Post.Post onPost={sortedData[0].post[0]}/>
         <Comments onComments={sortedData[0].comments} onMore={sortedData[0].moreComments}/>

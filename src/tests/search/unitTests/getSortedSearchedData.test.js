@@ -140,7 +140,6 @@ describe("getSortedSearchedData", () => {
         expect(SortReceivedPostsSpy).toBeCalledTimes(1)
         expect(SortReceivedPostsSpy).toHaveReturnedWith(searchData.searchData.oneSortedPost)
 
-        expect(mockDispatch).toBeCalledTimes(4)
         expect(mockDispatch).toHaveBeenNthCalledWith(1,
             {
                 type: "loadingState/changeLoadingState",

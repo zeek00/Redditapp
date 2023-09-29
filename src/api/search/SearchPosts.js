@@ -38,9 +38,9 @@ const SearchPosts = (props) => {
 
     
 
-return <div>
+return <div >
     {isLoading && <p>Loading...</p>}
-    {!isLoading && <ul>
+    {!isLoading && <ul id="srchPosts">
         {searchedPosts.length > 0? searchedPosts.map(onePost => {
             return <li key={onePost.id}>
                 <Post.Post onPost={onePost}/>
