@@ -113,6 +113,7 @@ describe("start from search/mango page", () => {
         await driver.sleep(1000);
 
         const currentUrl = await driver.getCurrentUrl().then(currUrl => {
+            console.log("current url: " + JSON.stringify(currUrl))
             return currUrl
         })
 

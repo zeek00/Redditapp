@@ -35,32 +35,15 @@ export const getSortedSearchedData = async (dispatch, value) => {
                     mode: 'cors',
                     headers: {
                         'Access-Control-Allow-Origin': '*',
-                        'Accept': 'application/json',
+
                     }
                 })
-
-                //: "no-cors",
-                /*    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-*/
-                console.log(new Date().toISOString() + "@@@@@ " + JSON.stringify(response) + JSON.stringify(response.status))
-
-console.log("resp: " + JSON.stringify(await response.json()))
-/*
-                const response2 = await fetch("http://localhost:1080/juozas", {
-                    method: "GET",
-                    mode: "no-cors",
-
-                })
-                console.log(new Date().toISOString() + " juozas response: " + JSON.stringify(response2) + JSON.stringify(response2.statusCode))
-*/
 
                 if (!response.ok){
                     throw new Error("err occurred !response.ok in getSortedSearchedData")
                 }
                 const searchedData = await response.json()
+                console.log("searchedData in getSortedSearchedData: " + JSON.stringify(searchedData))
 
                 //#########sorting with fetched data
                 const sortedData = ReceivedPosts.SortReceivedPosts(searchedData.data.children)

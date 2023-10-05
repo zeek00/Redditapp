@@ -83,7 +83,7 @@ function createExpectation() {
             },
             "httpResponse": {
                 'statusCode': 200,
-                'body': {type: "JSON", json: `${searchDataOnePost}`},
+                'body': {type: "JSON", json: searchDataOnePost},
                 'headers': {
                     'Access-Control-Allow-Origin': '*'
                 }

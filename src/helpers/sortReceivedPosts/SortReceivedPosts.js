@@ -1,5 +1,5 @@
 export const SortReceivedPosts =  (posts) => {
-  //console.log('went to sort data' + JSON.stringify(posts));
+ console.log('went to sort data' + JSON.stringify(posts));
   
    
     let sortedPostsList = [] 
@@ -11,8 +11,9 @@ export const SortReceivedPosts =  (posts) => {
         const post = posts[i].data
         const postKeys = Object.keys(post)
        console.log('Post keys: ' + JSON.stringify(postKeys));
-        
-        if (
+             console.log('Post id SortReceivedPosts: ' + JSON.stringify( post.id));
+
+             if (
         postKeys.includes("subreddit_name_prefixed") &&
         postKeys.includes("selftext") &&
         postKeys.includes("title") &&

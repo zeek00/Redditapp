@@ -6,12 +6,13 @@ import DownVote from './Vote/DownVote'
 import { BiMessageDetail } from 'react-icons/bi'
 
 export function Post(props) {
-//console.log("props:" + JSON.stringify(props))
+console.log("props in post> : " + JSON.stringify(props))
 const goToPage = useNavigate()
 
 const clickedComments = () => {
   // console.log("comments button was clicked, post id is: " + (JSON.stringify(props.onPost.id)))
   console.log("comments button was clicked, post id is: " + (JSON.stringify(props.about)))
+
   goToPage(`/${props.onPost.id}`)
 
 }

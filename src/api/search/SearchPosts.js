@@ -43,6 +43,7 @@ return <div >
     {!isLoading && <ul id="srchPosts">
         {searchedPosts.length > 0? searchedPosts.map(onePost => {
             return <li key={onePost.id}>
+                {!isLoading &&  console.log("in search posts sending to <post> : " + JSON.stringify(onePost))}
                 <Post.Post onPost={onePost}/>
             </li>
         }): <p>Searched posts Empty</p>
