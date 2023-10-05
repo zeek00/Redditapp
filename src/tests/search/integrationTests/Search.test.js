@@ -3,12 +3,15 @@
  * @jest-environment jest-environment-webdriver
  */
 
-import {writeFileSync} from 'node:fs'
 
+import {writeFileSync} from 'node:fs'
+import * as mockServ from "../../../../mockServer/mockServer"
 const {Key, Builder, By, until} = require('selenium-webdriver');
 import * as validateElements from '../../testsHelpers/integrationTests/testElementsValidation'
+import * as getSearchData from "../../../api/search/getSortedSearchedData";
 
-jest.setTimeout(130000)
+
+jest.setTimeout(200000)
 
 describe("from home page navigate to search/mango url", () => {
     let driver;
@@ -20,6 +23,7 @@ describe("from home page navigate to search/mango url", () => {
     })
 
     afterAll(() => {
+
         setTimeout(async () => {
             await driver.quit()
         }, 100);
@@ -30,6 +34,7 @@ describe("from home page navigate to search/mango url", () => {
 
         await driver.wait(until.elementLocated(By.id('srch')), 5 * 1000)
         const searchInput = await driver.findElement(By.id('srch'))
+
 
         await searchInput.sendKeys(inputValueToAdd);
         await driver.actions()
@@ -129,8 +134,42 @@ describe("start from search/mango page", () => {
         const mainPostDiv = await postIdDivDiv[0].findElements(By.tagName("div"))
         const validFirstPostElements = await validateElements.validatePostElementsForTest(mainPostDiv)
 
+
         expect(validFirstPostElements).toBe(true)
         expect(validNavBarElements).toBe(true)
+
+    })
+})
+
+describe("", ()=> {
+
+    let driver;
+
+    afterEach(async () => {
+        jest.restoreAllMocks();
+    });
+
+
+    beforeAll(async () => {
+        driver = await new Builder().forBrowser('chrome').build();
+
+        // func to get the cloud driver eslint disable next line no undef
+        await driver.get("http://localhost:3000/search/mango");
+    })
+
+    afterAll(() => {
+        setTimeout(async () => {
+            await driver.quit()
+        }, 100);
+    });
+
+    it("", async () => {
+
+
+
+        await driver.wait(until.elementsLocated(By.xpath("//ul/li/div/div/div/img")), 12 * 1000)
+console.log("l")
+
 
     })
 })

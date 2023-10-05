@@ -19,11 +19,43 @@ export const getSortedSearchedData = async (dispatch, value) => {
         }
         else {
             if (value.length >= 5){
-                const url = `https://www.reddit.com/search.json?q=${value}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
+                const redditBasePath = process.env.REACT_APP_REDDIT_BASE_PATH
+    console.log("################  REDDIT " + JSON.stringify(redditBasePath))
+                //${redditBasePath}
+                //const url = `http://localhost:1080/search.json?q=${value}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
+               const url = `http://localhost:1080/search.json?q=${value}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
+
+                //const url = `${redditBasePath}/search.json?q=${value}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
                 dispatch(changeLoadingState({message: "to loading"}))
 
+                console.log(new Date().toISOString() + "sending request ");// + JSON.stringify(response) + JSON.stringify(response.statusCode))
 
-                const response = await fetch(url)
+                const response = await fetch(url, {
+                    method: "GET",
+                    mode: 'cors',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Accept': 'application/json',
+                    }
+                })
+
+                //: "no-cors",
+                /*    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+*/
+                console.log(new Date().toISOString() + "@@@@@ " + JSON.stringify(response) + JSON.stringify(response.status))
+
+console.log("resp: " + JSON.stringify(await response.json()))
+/*
+                const response2 = await fetch("http://localhost:1080/juozas", {
+                    method: "GET",
+                    mode: "no-cors",
+
+                })
+                console.log(new Date().toISOString() + " juozas response: " + JSON.stringify(response2) + JSON.stringify(response2.statusCode))
+*/
 
                 if (!response.ok){
                     throw new Error("err occurred !response.ok in getSortedSearchedData")
