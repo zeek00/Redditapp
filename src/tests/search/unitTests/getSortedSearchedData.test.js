@@ -108,7 +108,7 @@ describe("getSortedSearchedData", () => {
 
     })
 
-    it("value is 5 char, return is ", async() => {
+    it("value is 5 char, return with expected data", async() => {
         const mockResponse = structuredClone(searchData.searchData.oneValidSearchPosts)
         const SortReceivedPostsSpyReturn = structuredClone(searchData.searchData.oneSortedPost)
         const val = "aaaaa"
@@ -131,11 +131,13 @@ describe("getSortedSearchedData", () => {
         }));
 
         const toReturn = await getPosts.getSortedSearchedData(mockDispatch, val)
-
+        const redditBasePath = process.env.REACT_APP_REDDIT_BASE_PATH
+        const url = `${redditBasePath}/search.json?q=${val}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
+console.log("url is " + url)
         expect(toReturn).toMatchObject(searchData.searchData.oneSortedPost)
 
         expect(fetchSpy).toBeCalledTimes(1)
-        expect(fetchSpy).toHaveBeenCalledWith(`https://www.reddit.com/search.json?q=${val}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`)
+        expect(fetchSpy).toHaveBeenCalledWith(url)
 
         expect(SortReceivedPostsSpy).toBeCalledTimes(1)
         expect(SortReceivedPostsSpy).toHaveReturnedWith(searchData.searchData.oneSortedPost)

@@ -21,23 +21,12 @@ export const getSortedSearchedData = async (dispatch, value) => {
             if (value.length >= 5){
                 const redditBasePath = process.env.REACT_APP_REDDIT_BASE_PATH
     console.log("################  REDDIT " + JSON.stringify(redditBasePath))
-                //${redditBasePath}
-                //const url = `http://localhost:1080/search.json?q=${value}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
-               const url = `http://localhost:1080/search.json?q=${value}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
-
-                //const url = `${redditBasePath}/search.json?q=${value}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
+               const url = `${redditBasePath}/search.json?q=${value}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
                 dispatch(changeLoadingState({message: "to loading"}))
-
+console.log("full url is: " + url)
                 console.log(new Date().toISOString() + "sending request ");// + JSON.stringify(response) + JSON.stringify(response.statusCode))
 
-                const response = await fetch(url, {
-                    method: "GET",
-                    mode: 'cors',
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-
-                    }
-                })
+                const response = await fetch(url)
 
                 if (!response.ok){
                     throw new Error("err occurred !response.ok in getSortedSearchedData")

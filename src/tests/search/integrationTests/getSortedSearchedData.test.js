@@ -84,12 +84,14 @@ describe("getSortedSearchedData", () => {
             ok: true,
             json: jest.fn().mockResolvedValue(mockResponse)
         })
+        const redditBasePath = process.env.REACT_APP_REDDIT_BASE_PATH
+        const url = `${redditBasePath}/search.json?q=${val}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`
 
         const toReturn = await getPosts.getSortedSearchedData(mockDispatch, val)
         expect(toReturn).toMatchObject(searchData.searchData.oneSortedPost)
 
         expect(fetchSpy).toBeCalledTimes(1)
-        expect(fetchSpy).toHaveBeenCalledWith(`https://www.reddit.com/search.json?q=${val}&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1`)
+        expect(fetchSpy).toHaveBeenCalledWith(url)
 
         expect(mockDispatch).toBeCalledTimes(4)
         expect(mockDispatch).toHaveBeenNthCalledWith(1,

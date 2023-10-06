@@ -1,5 +1,5 @@
 import searchDataOnePost from "../src/api/search/searchDataExampleOnePost";
-function runMockServer() {
+export function runMockServer() {
     const mockserver = require('mockserver-node');
 
     mockserver
@@ -7,20 +7,15 @@ function runMockServer() {
             serverPort: 1080,
             jvmOptions: [
                 '-Dmockserver.enableCORSForAllResponses=true',
-                '-Dmockserver.corsAllowOrigin="*"',
                 '-Dmockserver.corsAllowMethods="CONNECT, DELETE, GET, HEAD, OPTIONS, POST, PUT, PATCH, TRACE"',
                 '-Dmockserver.corsAllowHeaders="Allow, Content-Encoding, Content-Length, Content-Type, ETag, Expires, Last-Modified, Location, Server, Vary, Authorization"',
-                //'-Dmockserver.corsAllowCredentials=true',
                 '-Dmockserver.corsMaxAgeInSeconds=300',
-
-
             ],
             mockServerVersion: "5.15.0",
             verbose: true
         })
         .then(
             function () {
-
                 console.log("started MockServer");
                 createExpectation()
             },
@@ -30,7 +25,7 @@ function runMockServer() {
             }
         );
 }
-function closeMockServer() {
+export function closeMockServer() {
     const mockserver = require('mockserver-node');
 
     mockserver
@@ -71,7 +66,6 @@ function createExpectation() {
         .mockAnyResponse({
             "httpRequest": {
                 "method": "GET",
-
                 "path": `/search.json`,
                 "queryStringParameters": {
                     "q" : [ "mango" ],
@@ -79,7 +73,6 @@ function createExpectation() {
                 "headers": {
                     "Host" : [ "localhost:1080" ],
                 }
-//localhost:1080/search.json?q=mango&restrict_sr=on&include_over_18=on&sort=relevance&t=all&raw_json=1
             },
             "httpResponse": {
                 'statusCode': 200,
@@ -91,14 +84,10 @@ function createExpectation() {
         })
         .then(
             function () {
-
-                console.log(new Date().toISOString() + ": ################### created");
-
                 console.log("expectation created");
-
             },
             function (error) {
-                console.log("################### not   created");
+                console.log("not   created");
 
                 console.log(error);
             }
@@ -157,7 +146,6 @@ function retrieveRecordedLogMessages() {
         })
         .then(
             function (logMessages) {
-                // logMessages is a String[]
                 console.log(logMessages);
             },
             function (error) {
@@ -167,7 +155,7 @@ function retrieveRecordedLogMessages() {
 }
 
 
-runMockServer()
+
 
 
 
